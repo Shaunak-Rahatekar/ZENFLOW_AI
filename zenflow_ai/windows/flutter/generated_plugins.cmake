@@ -4,6 +4,9 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   app_links
+  connectivity_plus
+  flutter_secure_storage_windows
+  flutter_tts
   url_launcher_windows
 )
 

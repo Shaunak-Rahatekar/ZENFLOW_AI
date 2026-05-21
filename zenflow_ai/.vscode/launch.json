@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ZenFlow AI — Android (debug)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "android",
+      "args": [
+        "--dart-define-from-file=.env"
+      ],
+      "flutterMode": "debug"
+    },
+    {
+      "name": "ZenFlow AI — Android (profile)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "android",
+      "args": [
+        "--dart-define-from-file=.env"
+      ],
+      "flutterMode": "profile"
+    },
+    {
+      "name": "ZenFlow AI — Windows (debug)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "windows",
+      "args": [
+        "--dart-define-from-file=.env"
+      ],
+      "flutterMode": "debug"
+    }
+  ]
+}

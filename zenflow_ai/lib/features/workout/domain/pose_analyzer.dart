@@ -144,12 +144,16 @@ class PoseAnalyzer {
         correction['marathi'] ?? ''
       ));
     } else {
-       // Fallback generic message
        onCorrectionNeeded!(CorrectionData(
         jointName,
         'Please adjust your $jointName.',
         'कृपया आपला $jointName तपासा.'
       ));
     }
+  }
+
+  void dispose() {
+    _outOfBoundsTimers.clear();
+    _previousSmoothedPose = null;
   }
 }

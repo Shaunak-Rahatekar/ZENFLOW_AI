@@ -17,8 +17,8 @@ enum KeypointType {
   leftAnkle(15),
   rightAnkle(16);
 
-  final int index;
-  const KeypointType(this.index);
+  final int value;
+  const KeypointType(this.value);
 }
 
 class Keypoint {

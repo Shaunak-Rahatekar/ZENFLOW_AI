@@ -1,4 +1,3 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
 const corsHeaders = {
@@ -6,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -26,22 +25,21 @@ serve(async (req) => {
     // Fetch user health data
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
-      .select("health_data")
-      .eq("id", user_id)
+      .select("health_conditions, fitness_goal")
+      .eq("user_id", user_id)
       .single();
 
     if (profileError || !profile) {
       throw new Error(`Profile not found: ${profileError?.message}`);
     }
 
-    const healthData = profile.health_data || {};
-    const conditions = healthData.medical_conditions || [];
-    const goals = healthData.goals || [];
+    const conditions = profile.health_conditions || "";
+    const goals = profile.fitness_goal ? [profile.fitness_goal] : [];
 
     // Prompt for Gemini 1.5 Flash
     const prompt = `
       You are an expert Yoga Instructor. Create a 7-day workout split for a user.
-      User Health Conditions: ${conditions.join(", ") || "None"}
+      User Health Conditions: ${conditions || "None"}
       User Goals: ${goals.join(", ") || "General fitness"}
       
       Available Asanas in Registry:
@@ -65,32 +63,64 @@ serve(async (req) => {
       Respond ONLY with valid JSON.
     `;
 
-    const geminiApiKey = Deno.env.get("GEMINI_API_KEY");
+    const geminiApiKey = (Deno.env.get("GEMINI_API_KEY") || "").trim();
     if (!geminiApiKey) {
       throw new Error("Missing GEMINI_API_KEY");
     }
 
-    // Call Gemini API
-    const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiApiKey}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { response_mime_type: "application/json" }
-        }),
-      }
-    );
+    // Default to gemini-3.1-flash-lite, with robust fallbacks
+    const primaryModel = (Deno.env.get("GEMINI_MODEL") || "gemini-3.1-flash-lite").trim();
+    const fallbackModels = ["gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"];
+    const modelsToTry = [...new Set([primaryModel, ...fallbackModels])];
 
-    if (!geminiRes.ok) {
-      const errorText = await geminiRes.text();
-      throw new Error(`Gemini API Error: ${errorText}`);
+    let geminiRes: Response | null = null;
+    let lastError: Error | null = null;
+    let usedModel = "";
+
+    for (const model of modelsToTry) {
+      try {
+        console.log(`Attempting workout generation with model: ${model}`);
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { response_mime_type: "application/json" }
+            }),
+          }
+        );
+
+        if (res.ok) {
+          geminiRes = res;
+          usedModel = model;
+          console.log(`Successfully generated workout using model: ${model}`);
+          break;
+        } else {
+          const errorText = await res.text();
+          console.warn(`Model ${model} failed with status ${res.status}: ${errorText}`);
+          lastError = new Error(`Model ${model} status ${res.status}: ${errorText}`);
+        }
+      } catch (err) {
+        console.warn(`Failed to fetch from model ${model}:`, err);
+        lastError = err instanceof Error ? err : new Error(String(err));
+      }
+    }
+
+    if (!geminiRes) {
+      throw new Error(`All Gemini models failed. Last error: ${lastError?.message}`);
     }
 
     const geminiData = await geminiRes.json();
-    const rawText = geminiData.candidates[0].content.parts[0].text;
-    const splitArray = JSON.parse(rawText);
+    let rawText = geminiData.candidates[0].content.parts[0].text;
+
+    // Extract JSON array using regex to prevent parsing errors if Gemini adds conversational text
+    const jsonMatch = rawText.match(/\[[\s\S]*\]/);
+    if (!jsonMatch) {
+      throw new Error(`Failed to extract JSON from Gemini response: ${rawText}`);
+    }
+    const splitArray = JSON.parse(jsonMatch[0]);
 
     const startDate = new Date();
     const endDate = new Date(startDate);
