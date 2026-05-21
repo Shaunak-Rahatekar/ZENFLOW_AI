@@ -1,0 +1,224 @@
+[
+  {
+    "id": "tadasana",
+    "name": "Tadasana",
+    "sanskrit_name": "Tadasana",
+    "english_name": "Mountain Pose",
+    "description": "A foundational standing pose that improves posture and body awareness.",
+    "contraindications": ["severe headaches", "low blood pressure", "insomnia"],
+    "ideal_angles": {
+      "left_knee": { "min": 170, "max": 180, "target": 180 },
+      "right_knee": { "min": 170, "max": 180, "target": 180 },
+      "left_hip": { "min": 170, "max": 180, "target": 180 },
+      "right_hip": { "min": 170, "max": 180, "target": 180 },
+      "left_elbow": { "min": 160, "max": 180, "target": 180 },
+      "right_elbow": { "min": 160, "max": 180, "target": 180 }
+    },
+    "corrections": {
+      "left_knee_bent": {
+        "english": "Straighten your left leg.",
+        "marathi": "तुमचा डावा पाय सरळ करा."
+      },
+      "right_knee_bent": {
+        "english": "Straighten your right leg.",
+        "marathi": "तुमचा उजवा पाय सरळ करा."
+      },
+      "slouching": {
+        "english": "Stand tall, roll your shoulders back.",
+        "marathi": "सरळ उभे राहा, तुमचे खांदे मागे घ्या."
+      }
+    }
+  },
+  {
+    "id": "adho_mukha_svanasana",
+    "name": "Adho Mukha Svanasana",
+    "sanskrit_name": "Adho Mukha Svanasana",
+    "english_name": "Downward Facing Dog",
+    "description": "An inversion that stretches the entire back body and builds upper body strength.",
+    "contraindications": ["carpal tunnel syndrome", "high blood pressure", "late pregnancy"],
+    "ideal_angles": {
+      "left_hip": { "min": 70, "max": 100, "target": 85 },
+      "right_hip": { "min": 70, "max": 100, "target": 85 },
+      "left_shoulder": { "min": 150, "max": 180, "target": 170 },
+      "right_shoulder": { "min": 150, "max": 180, "target": 170 }
+    },
+    "corrections": {
+      "shoulders_forward": {
+        "english": "Push your hips back and up.",
+        "marathi": "तुमचे नितंब मागे आणि वर ढकला."
+      },
+      "knees_bent": {
+        "english": "Gently straighten your legs if comfortable.",
+        "marathi": "जर शक्य असेल तर पाय हळूवारपणे सरळ करा."
+      }
+    }
+  },
+  {
+    "id": "vrikshasana",
+    "name": "Vrikshasana",
+    "sanskrit_name": "Vrikshasana",
+    "english_name": "Tree Pose",
+    "description": "A balancing pose that improves focus and strengthens the legs and core.",
+    "contraindications": ["high blood pressure", "insomnia", "migraine", "knee pain"],
+    "ideal_angles": {
+      "left_knee": { "min": 170, "max": 180, "target": 180 },
+      "right_knee": { "min": 30, "max": 60, "target": 45 },
+      "left_hip": { "min": 170, "max": 180, "target": 180 }
+    },
+    "corrections": {
+      "foot_on_knee": {
+        "english": "Place your foot above or below the knee, not on the joint.",
+        "marathi": "तुमचा पाय गुडघ्याच्या वर किंवा खाली ठेवा, सांध्यावर नाही."
+      },
+      "wobbling": {
+        "english": "Find a focal point in front of you.",
+        "marathi": "समोरच्या एका बिंदूवर लक्ष केंद्रित करा."
+      }
+    }
+  },
+  {
+    "id": "virabhadrasana_i",
+    "name": "Virabhadrasana I",
+    "sanskrit_name": "Virabhadrasana I",
+    "english_name": "Warrior I",
+    "description": "A deep lunge that stretches the hip flexors and strengthens the legs and back.",
+    "contraindications": ["high blood pressure", "heart problems", "shoulder injuries"],
+    "ideal_angles": {
+      "front_knee": { "min": 80, "max": 100, "target": 90 },
+      "back_knee": { "min": 170, "max": 180, "target": 180 },
+      "shoulders": { "min": 160, "max": 180, "target": 180 }
+    },
+    "corrections": {
+      "front_knee_past_ankle": {
+        "english": "Ensure your front knee is directly over your ankle.",
+        "marathi": "तुमचा पुढचा गुडघा घोट्याच्या सरळ रेषेत असावा."
+      },
+      "arms_bent": {
+        "english": "Reach your arms straight up towards the ceiling.",
+        "marathi": "तुमचे हात छताकडे सरळ वर करा."
+      }
+    }
+  },
+  {
+    "id": "virabhadrasana_ii",
+    "name": "Virabhadrasana II",
+    "sanskrit_name": "Virabhadrasana II",
+    "english_name": "Warrior II",
+    "description": "A standing pose that builds stamina and stretches the hips and groin.",
+    "contraindications": ["diarrhea", "high blood pressure", "neck problems"],
+    "ideal_angles": {
+      "front_knee": { "min": 80, "max": 100, "target": 90 },
+      "back_knee": { "min": 170, "max": 180, "target": 180 },
+      "shoulders": { "min": 80, "max": 100, "target": 90 }
+    },
+    "corrections": {
+      "knee_collapsing_in": {
+        "english": "Keep your front knee pointing straight ahead.",
+        "marathi": "तुमचा पुढचा गुडघा सरळ पुढे ठेवा."
+      },
+      "arms_uneven": {
+        "english": "Keep both arms parallel to the floor.",
+        "marathi": "दोन्ही हात जमिनीला समांतर ठेवा."
+      }
+    }
+  },
+  {
+    "id": "trikonasana",
+    "name": "Trikonasana",
+    "sanskrit_name": "Trikonasana",
+    "english_name": "Triangle Pose",
+    "description": "A standing side stretch that opens the chest and stretches the hamstrings.",
+    "contraindications": ["low blood pressure", "diarrhea", "headache"],
+    "ideal_angles": {
+      "front_knee": { "min": 170, "max": 180, "target": 180 },
+      "back_knee": { "min": 170, "max": 180, "target": 180 },
+      "front_hip": { "min": 90, "max": 110, "target": 100 }
+    },
+    "corrections": {
+      "chest_facing_floor": {
+        "english": "Open your chest towards the side.",
+        "marathi": "तुमची छाती बाजूला उघडा."
+      },
+      "front_knee_bent": {
+        "english": "Try to keep both legs straight, but don't lock your knees.",
+        "marathi": "दोन्ही पाय सरळ ठेवण्याचा प्रयत्न करा, पण गुडघे कडक करू नका."
+      }
+    }
+  },
+  {
+    "id": "bhujangasana",
+    "name": "Bhujangasana",
+    "sanskrit_name": "Bhujangasana",
+    "english_name": "Cobra Pose",
+    "description": "A gentle backbend that strengthens the spine and opens the chest.",
+    "contraindications": ["pregnancy", "recent abdominal surgery", "carpal tunnel syndrome"],
+    "ideal_angles": {
+      "elbows": { "min": 100, "max": 160, "target": 140 },
+      "hips": { "min": 160, "max": 180, "target": 170 }
+    },
+    "corrections": {
+      "shoulders_by_ears": {
+        "english": "Relax your shoulders away from your ears.",
+        "marathi": "तुमचे खांदे कानांपासून दूर आणि सैल ठेवा."
+      },
+      "arms_fully_straight": {
+        "english": "Keep a slight bend in your elbows.",
+        "marathi": "तुमच्या कोपऱ्यांमध्ये थोडा बाक ठेवा."
+      }
+    }
+  },
+  {
+    "id": "balasana",
+    "name": "Balasana",
+    "sanskrit_name": "Balasana",
+    "english_name": "Child's Pose",
+    "description": "A resting pose that gently stretches the hips, thighs, and ankles.",
+    "contraindications": ["knee injuries", "pregnancy", "diarrhea"],
+    "ideal_angles": {
+      "knees": { "min": 30, "max": 50, "target": 40 },
+      "hips": { "min": 30, "max": 60, "target": 45 }
+    },
+    "corrections": {
+      "hips_high": {
+        "english": "Sink your hips back towards your heels.",
+        "marathi": "तुमचे नितंब टाचांकडे खाली घ्या."
+      }
+    }
+  },
+  {
+    "id": "paschimottanasana",
+    "name": "Paschimottanasana",
+    "sanskrit_name": "Paschimottanasana",
+    "english_name": "Seated Forward Bend",
+    "description": "A calming forward bend that stretches the hamstrings and lower back.",
+    "contraindications": ["asthma", "diarrhea", "back injury"],
+    "ideal_angles": {
+      "knees": { "min": 160, "max": 180, "target": 175 },
+      "hips": { "min": 40, "max": 90, "target": 60 }
+    },
+    "corrections": {
+      "rounding_back": {
+        "english": "Keep your back straight and fold from the hips.",
+        "marathi": "तुमची पाठ सरळ ठेवा आणि नितंबातून पुढे वाका."
+      }
+    }
+  },
+  {
+    "id": "uttanasana",
+    "name": "Uttanasana",
+    "sanskrit_name": "Uttanasana",
+    "english_name": "Standing Forward Bend",
+    "description": "An intense forward stretch that calms the brain and stretches the hamstrings.",
+    "contraindications": ["back injury", "low blood pressure"],
+    "ideal_angles": {
+      "knees": { "min": 160, "max": 180, "target": 170 },
+      "hips": { "min": 20, "max": 60, "target": 40 }
+    },
+    "corrections": {
+      "locked_knees": {
+        "english": "Keep a micro-bend in your knees.",
+        "marathi": "तुमच्या गुडघ्यांमध्ये थोडा बाक ठेवा."
+      }
+    }
+  }
+]
