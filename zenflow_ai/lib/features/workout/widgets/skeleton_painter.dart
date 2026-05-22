@@ -34,17 +34,17 @@ class SkeletonPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final bonePaint = Paint()
-      ..color = const Color(0xCC00E5FF) // cyan with slight transparency
+      ..color = const Color(0xCC00E5FF)
       ..strokeWidth = 2.5
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
-    // Draw bones
+    // Draw bones — use 0.2 threshold so skeleton appears even at moderate confidence
     for (final (a, b) in _kBones) {
       final ptA = pose.keypoints[a];
       final ptB = pose.keypoints[b];
       if (ptA == null || ptB == null) continue;
-      if (ptA.score < 0.3 || ptB.score < 0.3) continue;
+      if (ptA.score < 0.45 || ptB.score < 0.45) continue;
 
       canvas.drawLine(
         Offset(ptA.x * size.width, ptA.y * size.height),
@@ -56,19 +56,14 @@ class SkeletonPainter extends CustomPainter {
     // Draw keypoint dots
     for (final entry in pose.keypoints.entries) {
       final kp = entry.value;
-      if (kp.score < 0.3) continue;
+      if (kp.score < 0.45) continue;
 
       final color = _colorForScore(kp.score);
-      final dotPaint = Paint()
-        ..color = color
-        ..style = PaintingStyle.fill;
-
       canvas.drawCircle(
         Offset(kp.x * size.width, kp.y * size.height),
         5.0,
-        dotPaint,
+        Paint()..color = color..style = PaintingStyle.fill,
       );
-
       // White ring
       canvas.drawCircle(
         Offset(kp.x * size.width, kp.y * size.height),

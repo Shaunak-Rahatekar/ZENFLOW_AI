@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zenflow_ai/features/reports/providers/reports_provider.dart';
+import 'package:zenflow_ai/features/workout/providers/workout_session_provider.dart';
 
 class ReportsScreen extends ConsumerStatefulWidget {
   const ReportsScreen({super.key});
@@ -21,6 +22,14 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
     final theme = Theme.of(context);
     final dataAsync = ref.watch(reportsProvider(_filter));
 
+    // Auto-refresh when a workout completes
+    ref.listen<AsyncValue<WorkoutSessionState>>(workoutSessionProvider, (prev, next) {
+      if (prev?.value?.status != WorkoutStatus.completed &&
+          next.value?.status == WorkoutStatus.completed) {
+        ref.invalidate(reportsProvider(_filter));
+      }
+    });
+
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
       body: CustomScrollView(
@@ -37,11 +46,14 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
               title: Text(
                 'Reports',
                 style: GoogleFonts.inter(
-                    fontWeight: FontWeight.w700,
-                    color: theme.colorScheme.onSurface),
+                  fontWeight: FontWeight.w700,
+                  color: theme.colorScheme.onSurface,
+                ),
               ),
-              titlePadding:
-                  const EdgeInsetsDirectional.only(start: 20, bottom: 16),
+              titlePadding: const EdgeInsetsDirectional.only(
+                start: 20,
+                bottom: 16,
+              ),
             ),
           ),
 
@@ -74,8 +86,10 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                           filter: _filter,
                         ),
                   loading: () => const _ChartSkeleton(),
-                  error: (e, _) => _ErrorState(message: e.toString(),
-                      onRetry: () => ref.invalidate(reportsProvider(_filter))),
+                  error: (e, _) => _ErrorState(
+                    message: e.toString(),
+                    onRetry: () => ref.invalidate(reportsProvider(_filter)),
+                  ),
                 ),
 
                 const SizedBox(height: 20),
@@ -84,7 +98,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                 dataAsync.when(
                   data: (data) => _SummaryRow(data: data),
                   loading: () => const _SummaryRowSkeleton(),
-                  error: (_, __) => const SizedBox.shrink(),
+                  error: (_, _) => const SizedBox.shrink(),
                 ),
               ]),
             ),
@@ -112,25 +126,29 @@ class _FilterChips extends StatelessWidget {
     ];
     return Row(
       children: filters
-          .map((pair) => Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: FilterChip(
-                  label: Text(pair.$2,
-                      style: GoogleFonts.inter(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                          color: selected == pair.$1
-                              ? theme.colorScheme.onPrimary
-                              : theme.colorScheme.onSurface)),
-                  selected: selected == pair.$1,
-                  onSelected: (_) => onChanged(pair.$1),
-                  selectedColor: theme.colorScheme.primary,
-                  checkmarkColor: theme.colorScheme.onPrimary,
-                  backgroundColor:
-                      theme.colorScheme.surfaceContainerHighest,
-                  side: BorderSide.none,
+          .map(
+            (pair) => Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: FilterChip(
+                label: Text(
+                  pair.$2,
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13,
+                    color: selected == pair.$1
+                        ? theme.colorScheme.onPrimary
+                        : theme.colorScheme.onSurface,
+                  ),
                 ),
-              ))
+                selected: selected == pair.$1,
+                onSelected: (_) => onChanged(pair.$1),
+                selectedColor: theme.colorScheme.primary,
+                checkmarkColor: theme.colorScheme.onPrimary,
+                backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                side: BorderSide.none,
+              ),
+            ),
+          )
           .toList(),
     );
   }
@@ -139,10 +157,11 @@ class _FilterChips extends StatelessWidget {
 // ── Segmented Toggle ──────────────────────────────────────────────────────────
 
 class _SegmentedToggle extends StatelessWidget {
-  const _SegmentedToggle(
-      {required this.selected,
-      required this.labels,
-      required this.onChanged});
+  const _SegmentedToggle({
+    required this.selected,
+    required this.labels,
+    required this.onChanged,
+  });
   final int selected;
   final List<String> labels;
   final ValueChanged<int> onChanged;
@@ -175,11 +194,12 @@ class _SegmentedToggle extends StatelessWidget {
                   labels[i],
                   textAlign: TextAlign.center,
                   style: GoogleFonts.inter(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: isSelected
-                          ? theme.colorScheme.onPrimary
-                          : theme.colorScheme.onSurface.withOpacity(0.6)),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: isSelected
+                        ? theme.colorScheme.onPrimary
+                        : theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
                 ),
               ),
             ),
@@ -207,14 +227,16 @@ class _ChartCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isCalories = chartMode == 1;
-    final barColor =
-        isCalories ? const Color(0xFFFF7043) : theme.colorScheme.primary;
+    final barColor = isCalories
+        ? const Color(0xFFFF7043)
+        : theme.colorScheme.primary;
     final label = isCalories ? 'kcal' : 'workouts';
 
     final bars = data.entries.asMap().entries.map((e) {
       final entry = e.value;
-      final yVal =
-          isCalories ? entry.calories.toDouble() : entry.workouts.toDouble();
+      final yVal = isCalories
+          ? entry.calories.toDouble()
+          : entry.workouts.toDouble();
       return BarChartGroupData(
         x: e.key,
         barRods: [
@@ -239,7 +261,8 @@ class _ChartCard extends StatelessWidget {
         color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-            color: theme.colorScheme.outlineVariant.withOpacity(0.4)),
+          color: theme.colorScheme.outlineVariant.withOpacity(0.4),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,15 +270,17 @@ class _ChartCard extends StatelessWidget {
           Text(
             isCalories ? 'Calories Burned' : 'Workouts Completed',
             style: GoogleFonts.inter(
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                color: theme.colorScheme.onSurface),
+              fontWeight: FontWeight.w700,
+              fontSize: 16,
+              color: theme.colorScheme.onSurface,
+            ),
           ),
           Text(
             _subLabel(filter),
             style: GoogleFonts.inter(
-                fontSize: 12,
-                color: theme.colorScheme.onSurface.withOpacity(0.45)),
+              fontSize: 12,
+              color: theme.colorScheme.onSurface.withOpacity(0.45),
+            ),
           ),
           const SizedBox(height: 20),
           SizedBox(
@@ -278,9 +303,11 @@ class _ChartCard extends StatelessWidget {
                 borderData: FlBorderData(show: false),
                 titlesData: FlTitlesData(
                   topTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: false)),
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
                   rightTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: false)),
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
                   leftTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
@@ -289,8 +316,9 @@ class _ChartCard extends StatelessWidget {
                       getTitlesWidget: (v, _) => Text(
                         v.toInt().toString(),
                         style: GoogleFonts.inter(
-                            fontSize: 10,
-                            color: theme.colorScheme.onSurface.withOpacity(0.4)),
+                          fontSize: 10,
+                          color: theme.colorScheme.onSurface.withOpacity(0.4),
+                        ),
                       ),
                     ),
                   ),
@@ -306,9 +334,11 @@ class _ChartCard extends StatelessWidget {
                           child: Text(
                             _shortDate(data.entries[i].date),
                             style: GoogleFonts.inter(
-                                fontSize: 10,
-                                color: theme.colorScheme.onSurface
-                                    .withOpacity(0.45)),
+                              fontSize: 10,
+                              color: theme.colorScheme.onSurface.withOpacity(
+                                0.45,
+                              ),
+                            ),
                           ),
                         );
                       },
@@ -317,14 +347,14 @@ class _ChartCard extends StatelessWidget {
                 ),
                 barTouchData: BarTouchData(
                   touchTooltipData: BarTouchTooltipData(
-                    getTooltipColor: (_) =>
-                        theme.colorScheme.inverseSurface,
-                    getTooltipItem: (group, _, rod, __) => BarTooltipItem(
+                    getTooltipColor: (_) => theme.colorScheme.inverseSurface,
+                    getTooltipItem: (group, _, rod, _) => BarTooltipItem(
                       '${rod.toY.toInt()} $label',
                       GoogleFonts.inter(
-                          color: theme.colorScheme.onInverseSurface,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12),
+                        color: theme.colorScheme.onInverseSurface,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
                 ),
@@ -355,16 +385,32 @@ class _ChartCard extends StatelessWidget {
   String _shortDate(String date) {
     final parts = date.split('-');
     if (parts.length < 3) return date;
-    final months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    final months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
     final m = int.tryParse(parts[1]) ?? 1;
     return '${months[m - 1]} ${parts[2]}';
   }
 
   String _subLabel(ReportsFilter f) {
     switch (f) {
-      case ReportsFilter.today: return 'Today';
-      case ReportsFilter.thisWeek: return 'Last 7 days';
-      case ReportsFilter.overall: return 'All time';
+      case ReportsFilter.today:
+        return 'Today';
+      case ReportsFilter.thisWeek:
+        return 'Last 7 days';
+      case ReportsFilter.overall:
+        return 'All time';
     }
   }
 }
@@ -380,36 +426,43 @@ class _SummaryRow extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-            child: _SummaryCard(
-                label: 'Workouts',
-                value: data.totalWorkouts.toString(),
-                icon: Icons.fitness_center_rounded,
-                color: Theme.of(context).colorScheme.primary)),
+          child: _SummaryCard(
+            label: 'Workouts',
+            value: data.totalWorkouts.toString(),
+            icon: Icons.fitness_center_rounded,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
         const SizedBox(width: 12),
         Expanded(
-            child: _SummaryCard(
-                label: 'Calories',
-                value: '${data.totalCalories} kcal',
-                icon: Icons.local_fire_department_rounded,
-                color: const Color(0xFFFF7043))),
+          child: _SummaryCard(
+            label: 'Calories',
+            value: '${data.totalCalories} kcal',
+            icon: Icons.local_fire_department_rounded,
+            color: const Color(0xFFFF7043),
+          ),
+        ),
         const SizedBox(width: 12),
         Expanded(
-            child: _SummaryCard(
-                label: 'Minutes',
-                value: data.totalMinutes.toString(),
-                icon: Icons.timer_outlined,
-                color: Colors.purple)),
+          child: _SummaryCard(
+            label: 'Minutes',
+            value: data.totalMinutes.toString(),
+            icon: Icons.timer_outlined,
+            color: Colors.purple,
+          ),
+        ),
       ],
     );
   }
 }
 
 class _SummaryCard extends StatelessWidget {
-  const _SummaryCard(
-      {required this.label,
-      required this.value,
-      required this.icon,
-      required this.color});
+  const _SummaryCard({
+    required this.label,
+    required this.value,
+    required this.icon,
+    required this.color,
+  });
   final String label;
   final String value;
   final IconData icon;
@@ -424,23 +477,30 @@ class _SummaryCard extends StatelessWidget {
         color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.6),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-            color: theme.colorScheme.outlineVariant.withOpacity(0.35)),
+          color: theme.colorScheme.outlineVariant.withOpacity(0.35),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, color: color, size: 18),
           const SizedBox(height: 8),
-          Text(value,
-              style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15,
-                  color: theme.colorScheme.onSurface),
-              overflow: TextOverflow.ellipsis),
-          Text(label,
-              style: GoogleFonts.inter(
-                  fontSize: 10,
-                  color: theme.colorScheme.onSurface.withOpacity(0.5))),
+          Text(
+            value,
+            style: GoogleFonts.inter(
+              fontWeight: FontWeight.w700,
+              fontSize: 15,
+              color: theme.colorScheme.onSurface,
+            ),
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text(
+            label,
+            style: GoogleFonts.inter(
+              fontSize: 10,
+              color: theme.colorScheme.onSurface.withOpacity(0.5),
+            ),
+          ),
         ],
       ),
     );
@@ -459,8 +519,8 @@ class _EmptyState extends StatelessWidget {
     final label = filter == ReportsFilter.today
         ? 'No workouts today yet.'
         : filter == ReportsFilter.thisWeek
-            ? 'No workouts this week.'
-            : 'No workout history yet.';
+        ? 'No workouts this week.'
+        : 'No workout history yet.';
 
     return Container(
       height: 200,
@@ -468,24 +528,34 @@ class _EmptyState extends StatelessWidget {
         color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.4),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-            color: theme.colorScheme.outlineVariant.withOpacity(0.35)),
+          color: theme.colorScheme.outlineVariant.withOpacity(0.35),
+        ),
       ),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.bar_chart_rounded,
-                size: 48, color: theme.colorScheme.onSurface.withOpacity(0.15)),
+            Icon(
+              Icons.bar_chart_rounded,
+              size: 48,
+              color: theme.colorScheme.onSurface.withOpacity(0.15),
+            ),
             const SizedBox(height: 12),
-            Text(label,
-                style: GoogleFonts.inter(
-                    color: theme.colorScheme.onSurface.withOpacity(0.4),
-                    fontSize: 14)),
+            Text(
+              label,
+              style: GoogleFonts.inter(
+                color: theme.colorScheme.onSurface.withOpacity(0.4),
+                fontSize: 14,
+              ),
+            ),
             const SizedBox(height: 4),
-            Text('Complete a workout to see your stats.',
-                style: GoogleFonts.inter(
-                    color: theme.colorScheme.onSurface.withOpacity(0.3),
-                    fontSize: 12)),
+            Text(
+              'Complete a workout to see your stats.',
+              style: GoogleFonts.inter(
+                color: theme.colorScheme.onSurface.withOpacity(0.3),
+                fontSize: 12,
+              ),
+            ),
           ],
         ),
       ),
@@ -509,24 +579,32 @@ class _ErrorState extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(Icons.cloud_off_rounded,
-              color: theme.colorScheme.error, size: 36),
+          Icon(
+            Icons.cloud_off_rounded,
+            color: theme.colorScheme.error,
+            size: 36,
+          ),
           const SizedBox(height: 8),
-          Text('Could not load reports.',
-              style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w600,
-                  color: theme.colorScheme.onErrorContainer)),
+          Text(
+            'Could not load reports.',
+            style: GoogleFonts.inter(
+              fontWeight: FontWeight.w600,
+              color: theme.colorScheme.onErrorContainer,
+            ),
+          ),
           const SizedBox(height: 4),
-          Text(message,
-              style: GoogleFonts.inter(
-                  fontSize: 11,
-                  color: theme.colorScheme.onErrorContainer.withOpacity(0.6)),
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis),
+          Text(
+            message,
+            style: GoogleFonts.inter(
+              fontSize: 11,
+              color: theme.colorScheme.onErrorContainer.withOpacity(0.6),
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
           const SizedBox(height: 12),
-          FilledButton.tonal(
-              onPressed: onRetry, child: const Text('Retry')),
+          FilledButton.tonal(onPressed: onRetry, child: const Text('Retry')),
         ],
       ),
     );
@@ -555,21 +633,20 @@ class _SummaryRowSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(
-          3,
-          (i) => Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(right: i < 2 ? 12 : 0),
-                  child: Container(
-                    height: 90,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .surfaceContainerHighest,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                ),
-              )),
+        3,
+        (i) => Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(right: i < 2 ? 12 : 0),
+            child: Container(
+              height: 90,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

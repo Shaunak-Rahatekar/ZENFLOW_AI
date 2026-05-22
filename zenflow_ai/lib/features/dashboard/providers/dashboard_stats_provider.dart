@@ -1,6 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+// Expose a refreshable version so WorkoutSessionNotifier can invalidate it.
+// The provider is a FutureProvider — calling ref.invalidate(dashboardStatsProvider)
+// from any widget or notifier will trigger a fresh fetch.
+
 /// Provides dashboard statistics from Supabase.
 /// On any fetch error (e.g. PGRST205 table-not-found, network) the provider
 /// returns [DashboardStats.syncing] so the UI can show a soft placeholder

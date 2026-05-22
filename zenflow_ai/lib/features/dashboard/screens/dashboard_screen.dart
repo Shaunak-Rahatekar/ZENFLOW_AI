@@ -40,7 +40,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
     }
   }
 
-  void _launchWorkout(BuildContext context, WorkoutSessionState session) {
+  void _launchWorkout(BuildContext context, WorkoutSessionState session) async {
+    // If there's no active split loaded yet, fetch it from Supabase first
+    if (session.status == WorkoutStatus.idle) {
+      await ref.read(workoutSessionProvider.notifier).fetchAndStartWorkout();
+      final updated = ref.read(workoutSessionProvider).value;
+      if (updated == null || updated.status == WorkoutStatus.idle) return;
+    }
+
+    if (!context.mounted) return;
     Navigator.of(context).push(
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
@@ -70,7 +78,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
       builder: (context) => AlertDialog(
         title: Text('Resume Workout?', style: GoogleFonts.inter(fontWeight: FontWeight.w700)),
         content: Text(
-          'You have an unfinished workout session (Day ${session.currentAsanaIndex + 1}). Would you like to resume it?',
+          'You have an unfinished workout session. Would you like to resume it?',
           style: GoogleFonts.inter(),
         ),
         actions: [
@@ -95,8 +103,20 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
 
   @override
   Widget build(BuildContext context) {
+    // Listen for workout completion → immediately refresh stats and reports
     ref.listen<AsyncValue<WorkoutSessionState>>(workoutSessionProvider, (previous, next) {
-      if (!_hasCheckedResume && next is AsyncData && next.value?.status == WorkoutStatus.paused) {
+      final prevStatus = previous?.value?.status;
+      final nextStatus = next.value?.status;
+
+      // Refresh dashboard when a session completes
+      if (prevStatus != WorkoutStatus.completed && nextStatus == WorkoutStatus.completed) {
+        ref.invalidate(dashboardStatsProvider);
+      }
+
+      if (!_hasCheckedResume &&
+          next is AsyncData &&
+          next.value?.status == WorkoutStatus.paused &&
+          (next.value?.asanas.isNotEmpty ?? false)) {
         _hasCheckedResume = true;
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _showResumeDialog(next.value!);

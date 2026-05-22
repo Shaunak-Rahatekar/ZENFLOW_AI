@@ -37,15 +37,17 @@ dependencies:
   supabase_flutter: ^2.12.4
   camera: ^0.12.0+1
   tflite_flutter: ^0.12.1
+  wakelock_plus: ^1.2.8
   flutter_riverpod: ^3.3.1
   path_provider: ^2.1.5
   fl_chart: ^1.2.0
   google_fonts: ^8.1.0
   shared_preferences: ^2.5.5
-  flutter_tts: ^4.2.2
+  audioplayers: ^5.2.1
   flutter_dotenv: ^6.0.1
   flutter_secure_storage: ^9.0.0
   connectivity_plus: ^6.0.3
+  image: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +92,7 @@ flutter:
     - .env
     - assets/data/asana_registry.json
     - assets/models/movenet_thunder.tflite
+    - assets/images/poses/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

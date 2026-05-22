@@ -5,14 +5,55 @@
     "sanskrit_name": "Tadasana",
     "english_name": "Mountain Pose",
     "description": "A foundational standing pose that improves posture and body awareness.",
-    "contraindications": ["severe headaches", "low blood pressure", "insomnia"],
+    "category": "standing",
+    "difficulty": "beginner",
+    "duration_seconds": 30,
+    "contraindications": [
+      "severe headaches",
+      "low blood pressure",
+      "insomnia"
+    ],
     "ideal_angles": {
-      "left_knee": { "min": 170, "max": 180, "target": 180 },
-      "right_knee": { "min": 170, "max": 180, "target": 180 },
-      "left_hip": { "min": 170, "max": 180, "target": 180 },
-      "right_hip": { "min": 170, "max": 180, "target": 180 },
-      "left_elbow": { "min": 160, "max": 180, "target": 180 },
-      "right_elbow": { "min": 160, "max": 180, "target": 180 }
+      "left_elbow": {
+        "min": 158,
+        "max": 180,
+        "target": 173
+      },
+      "right_elbow": {
+        "min": 152,
+        "max": 180,
+        "target": 167
+      },
+      "left_shoulder": {
+        "min": 0,
+        "max": 27,
+        "target": 12
+      },
+      "right_shoulder": {
+        "min": 0,
+        "max": 26,
+        "target": 11
+      },
+      "left_hip": {
+        "min": 160,
+        "max": 180,
+        "target": 175
+      },
+      "right_hip": {
+        "min": 160,
+        "max": 180,
+        "target": 175
+      },
+      "left_knee": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      },
+      "right_knee": {
+        "min": 163,
+        "max": 180,
+        "target": 178
+      }
     },
     "corrections": {
       "left_knee_bent": {
@@ -27,7 +68,44 @@
         "english": "Stand tall, roll your shoulders back.",
         "marathi": "सरळ उभे राहा, तुमचे खांदे मागे घ्या."
       }
-    }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.002468659728521669,
+      -0.4778834006597466,
+      0.024628283094240984,
+      -0.4991275950848753,
+      -0.020123627238843252,
+      -0.5,
+      0.05384353890976889,
+      -0.48082480537975336,
+      -0.047945573934633674,
+      -0.47757169284538536,
+      0.1172279872343466,
+      -0.33319573787117235,
+      -0.10927313918926157,
+      -0.3297476613018701,
+      0.1289199825249756,
+      -0.14611635085102273,
+      -0.1185862539873434,
+      -0.13994931742874037,
+      0.1607020628548893,
+      0.017984206124509454,
+      -0.1607020628548893,
+      0.013232291944842699,
+      0.07189955111343659,
+      -0.032884308934043704,
+      -0.06554461213514083,
+      -0.03265459102605762,
+      0.05499282083455262,
+      0.25247756937527943,
+      -0.049769161774855485,
+      0.24761095010492035,
+      0.0459918946736468,
+      0.49000888656726266,
+      -0.044383369262016796,
+      0.5
+    ]
   },
   {
     "id": "adho_mukha_svanasana",
@@ -35,12 +113,55 @@
     "sanskrit_name": "Adho Mukha Svanasana",
     "english_name": "Downward Facing Dog",
     "description": "An inversion that stretches the entire back body and builds upper body strength.",
-    "contraindications": ["carpal tunnel syndrome", "high blood pressure", "late pregnancy"],
+    "category": "inversion",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "carpal tunnel syndrome",
+      "high blood pressure",
+      "late pregnancy"
+    ],
     "ideal_angles": {
-      "left_hip": { "min": 70, "max": 100, "target": 85 },
-      "right_hip": { "min": 70, "max": 100, "target": 85 },
-      "left_shoulder": { "min": 150, "max": 180, "target": 170 },
-      "right_shoulder": { "min": 150, "max": 180, "target": 170 }
+      "left_elbow": {
+        "min": 146,
+        "max": 176,
+        "target": 161
+      },
+      "right_elbow": {
+        "min": 146,
+        "max": 176,
+        "target": 161
+      },
+      "left_shoulder": {
+        "min": 139,
+        "max": 169,
+        "target": 154
+      },
+      "right_shoulder": {
+        "min": 139,
+        "max": 169,
+        "target": 154
+      },
+      "left_hip": {
+        "min": 56,
+        "max": 86,
+        "target": 71
+      },
+      "right_hip": {
+        "min": 56,
+        "max": 86,
+        "target": 71
+      },
+      "left_knee": {
+        "min": 163,
+        "max": 180,
+        "target": 178
+      },
+      "right_knee": {
+        "min": 163,
+        "max": 180,
+        "target": 178
+      }
     },
     "corrections": {
       "shoulders_forward": {
@@ -51,7 +172,44 @@
         "english": "Gently straighten your legs if comfortable.",
         "marathi": "जर शक्य असेल तर पाय हळूवारपणे सरळ करा."
       }
-    }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.17801794391962023,
+      0.13381848192085188,
+      -0.21399717672699736,
+      0.144137788583503,
+      -0.21479856660763927,
+      0.14279006672508668,
+      -0.2889011891615113,
+      0.0792207785980339,
+      -0.2828497576810819,
+      0.08175778965894064,
+      -0.2503667279124959,
+      -0.04929098012962741,
+      -0.2466898330069415,
+      -0.06413312637853416,
+      -0.34834098101765093,
+      0.2292544151941749,
+      -0.3414281951000228,
+      0.19313932826309327,
+      -0.5000000000000001,
+      0.4174714158793663,
+      -0.46856013900003723,
+      0.3482814980492251,
+      0.12427306382391436,
+      -0.41580891727518265,
+      0.11728734264697947,
+      -0.4174714158793662,
+      0.3136066114066505,
+      -0.01311781117025871,
+      0.3042147250950596,
+      -0.017584259472201623,
+      0.5,
+      0.34696699433712325,
+      0.4367590439285026,
+      0.29296930621405637
+    ]
   },
   {
     "id": "vrikshasana",
@@ -59,22 +217,100 @@
     "sanskrit_name": "Vrikshasana",
     "english_name": "Tree Pose",
     "description": "A balancing pose that improves focus and strengthens the legs and core.",
-    "contraindications": ["high blood pressure", "insomnia", "migraine", "knee pain"],
+    "category": "balance",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "high blood pressure",
+      "insomnia",
+      "migraine",
+      "knee pain"
+    ],
     "ideal_angles": {
-      "left_knee": { "min": 170, "max": 180, "target": 180 },
-      "right_knee": { "min": 30, "max": 60, "target": 45 },
-      "left_hip": { "min": 170, "max": 180, "target": 180 }
+      "left_elbow": {
+        "min": 130,
+        "max": 160,
+        "target": 145
+      },
+      "right_elbow": {
+        "min": 127,
+        "max": 157,
+        "target": 142
+      },
+      "left_shoulder": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "right_shoulder": {
+        "min": 162,
+        "max": 180,
+        "target": 177
+      },
+      "left_hip": {
+        "min": 111,
+        "max": 141,
+        "target": 126
+      },
+      "right_hip": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "left_knee": {
+        "min": 15,
+        "max": 45,
+        "target": 30
+      },
+      "right_knee": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      }
     },
     "corrections": {
-      "foot_on_knee": {
-        "english": "Place your foot above or below the knee, not on the joint.",
-        "marathi": "तुमचा पाय गुडघ्याच्या वर किंवा खाली ठेवा, सांध्यावर नाही."
-      },
       "wobbling": {
         "english": "Find a focal point in front of you.",
         "marathi": "समोरच्या एका बिंदूवर लक्ष केंद्रित करा."
       }
-    }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.07400662460777749,
+      -0.3057498620736039,
+      -0.05660273394206252,
+      -0.32550993204054113,
+      -0.09153216797860633,
+      -0.3254466320243715,
+      -0.03517559911266636,
+      -0.31479108676215867,
+      -0.1161652220853456,
+      -0.31075183956100416,
+      -0.0037495615478152205,
+      -0.23255547482818276,
+      -0.14603106910270774,
+      -0.23033606055157027,
+      0.015923429042201752,
+      -0.3814744420016367,
+      -0.16314025231336746,
+      -0.3811829769070225,
+      -0.04522622762871041,
+      -0.5,
+      -0.0908445532207838,
+      -0.49845340363719,
+      -0.018845432056545413,
+      0.04143775181484513,
+      -0.1268737536104175,
+      0.05324626773448012,
+      0.1631402523133676,
+      0.1878771493024895,
+      -0.09081958959649372,
+      0.2989675716314341,
+      -0.04334784079812397,
+      0.15403350638315583,
+      -0.05779329019098533,
+      0.5
+    ]
   },
   {
     "id": "virabhadrasana_i",
@@ -82,22 +318,99 @@
     "sanskrit_name": "Virabhadrasana I",
     "english_name": "Warrior I",
     "description": "A deep lunge that stretches the hip flexors and strengthens the legs and back.",
-    "contraindications": ["high blood pressure", "heart problems", "shoulder injuries"],
+    "category": "standing",
+    "difficulty": "intermediate",
+    "duration_seconds": 45,
+    "contraindications": [
+      "high blood pressure",
+      "heart problems",
+      "shoulder injuries"
+    ],
     "ideal_angles": {
-      "front_knee": { "min": 80, "max": 100, "target": 90 },
-      "back_knee": { "min": 170, "max": 180, "target": 180 },
-      "shoulders": { "min": 160, "max": 180, "target": 180 }
+      "left_elbow": {
+        "min": 153,
+        "max": 180,
+        "target": 168
+      },
+      "right_elbow": {
+        "min": 153,
+        "max": 180,
+        "target": 168
+      },
+      "left_shoulder": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "right_shoulder": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "left_hip": {
+        "min": 109,
+        "max": 139,
+        "target": 124
+      },
+      "right_hip": {
+        "min": 123,
+        "max": 153,
+        "target": 138
+      },
+      "left_knee": {
+        "min": 110,
+        "max": 140,
+        "target": 125
+      },
+      "right_knee": {
+        "min": 150,
+        "max": 180,
+        "target": 165
+      }
     },
     "corrections": {
       "front_knee_past_ankle": {
         "english": "Ensure your front knee is directly over your ankle.",
         "marathi": "तुमचा पुढचा गुडघा घोट्याच्या सरळ रेषेत असावा."
-      },
-      "arms_bent": {
-        "english": "Reach your arms straight up towards the ceiling.",
-        "marathi": "तुमचे हात छताकडे सरळ वर करा."
       }
-    }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      0.13579747018854257,
+      -0.2788091204576618,
+      0.11857382777856765,
+      -0.299215948525686,
+      0.11740039840384973,
+      -0.3020177517849679,
+      0.06219945128434154,
+      -0.2935172819095453,
+      0.06283589291944568,
+      -0.29059649158604783,
+      0.06372567693590288,
+      -0.17823723761510255,
+      0.03745323331712642,
+      -0.17283014801035337,
+      0.07937119094535719,
+      -0.35828436199856817,
+      0.06397411387451893,
+      -0.3554381460787063,
+      0.061426052852821905,
+      -0.5000000000000001,
+      0.05489342728792688,
+      -0.49869330827115166,
+      0.0866815665441997,
+      0.12175862476054805,
+      0.04737749781439499,
+      0.11875921147730013,
+      0.31173243987190474,
+      0.25089339487786394,
+      -0.12599564395958887,
+      0.32688284984666494,
+      0.3346907030815259,
+      0.5,
+      -0.33469070308152593,
+      0.4719418057305205
+    ]
   },
   {
     "id": "virabhadrasana_ii",
@@ -105,22 +418,99 @@
     "sanskrit_name": "Virabhadrasana II",
     "english_name": "Warrior II",
     "description": "A standing pose that builds stamina and stretches the hips and groin.",
-    "contraindications": ["diarrhea", "high blood pressure", "neck problems"],
+    "category": "standing",
+    "difficulty": "intermediate",
+    "duration_seconds": 45,
+    "contraindications": [
+      "diarrhea",
+      "high blood pressure",
+      "neck problems"
+    ],
     "ideal_angles": {
-      "front_knee": { "min": 80, "max": 100, "target": 90 },
-      "back_knee": { "min": 170, "max": 180, "target": 180 },
-      "shoulders": { "min": 80, "max": 100, "target": 90 }
+      "left_elbow": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      },
+      "right_elbow": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "left_shoulder": {
+        "min": 88,
+        "max": 118,
+        "target": 103
+      },
+      "right_shoulder": {
+        "min": 77,
+        "max": 107,
+        "target": 92
+      },
+      "left_hip": {
+        "min": 93,
+        "max": 123,
+        "target": 108
+      },
+      "right_hip": {
+        "min": 117,
+        "max": 147,
+        "target": 132
+      },
+      "left_knee": {
+        "min": 101,
+        "max": 131,
+        "target": 116
+      },
+      "right_knee": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      }
     },
     "corrections": {
       "knee_collapsing_in": {
         "english": "Keep your front knee pointing straight ahead.",
         "marathi": "तुमचा पुढचा गुडघा सरळ पुढे ठेवा."
-      },
-      "arms_uneven": {
-        "english": "Keep both arms parallel to the floor.",
-        "marathi": "दोन्ही हात जमिनीला समांतर ठेवा."
       }
-    }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      0.10699802913861758,
+      -0.47976255870357204,
+      0.08295928511234887,
+      -0.4985784278417422,
+      0.07525840608958789,
+      -0.5000000000000001,
+      0.02144138183148107,
+      -0.4758905652590141,
+      0.0033715364391787234,
+      -0.47829026086483184,
+      0.12509717857239044,
+      -0.3424905968272291,
+      -0.10117053010960236,
+      -0.342914948221461,
+      0.32680237151110075,
+      -0.36307945882114834,
+      -0.30134740067783633,
+      -0.3180968576794295,
+      0.4896615592470267,
+      -0.38173036924937076,
+      -0.48966155924702687,
+      -0.30926843393534004,
+      0.07612688053663556,
+      0.05949217578934449,
+      -0.04275697936038636,
+      0.04294176967563688,
+      0.3446661760305014,
+      0.18639790376626647,
+      -0.24471054686512617,
+      0.28932462014510235,
+      0.34589765555874413,
+      0.5,
+      -0.4709106737352152,
+      0.49330009999274693
+    ]
   },
   {
     "id": "trikonasana",
@@ -128,22 +518,99 @@
     "sanskrit_name": "Trikonasana",
     "english_name": "Triangle Pose",
     "description": "A standing side stretch that opens the chest and stretches the hamstrings.",
-    "contraindications": ["low blood pressure", "diarrhea", "headache"],
+    "category": "standing",
+    "difficulty": "intermediate",
+    "duration_seconds": 45,
+    "contraindications": [
+      "low blood pressure",
+      "diarrhea",
+      "headache"
+    ],
     "ideal_angles": {
-      "front_knee": { "min": 170, "max": 180, "target": 180 },
-      "back_knee": { "min": 170, "max": 180, "target": 180 },
-      "front_hip": { "min": 90, "max": 110, "target": 100 }
+      "left_elbow": {
+        "min": 152,
+        "max": 180,
+        "target": 167
+      },
+      "right_elbow": {
+        "min": 148,
+        "max": 178,
+        "target": 163
+      },
+      "left_shoulder": {
+        "min": 102,
+        "max": 132,
+        "target": 117
+      },
+      "right_shoulder": {
+        "min": 59,
+        "max": 89,
+        "target": 74
+      },
+      "left_hip": {
+        "min": 144,
+        "max": 174,
+        "target": 159
+      },
+      "right_hip": {
+        "min": 51,
+        "max": 81,
+        "target": 66
+      },
+      "left_knee": {
+        "min": 162,
+        "max": 180,
+        "target": 177
+      },
+      "right_knee": {
+        "min": 163,
+        "max": 180,
+        "target": 178
+      }
     },
     "corrections": {
       "chest_facing_floor": {
         "english": "Open your chest towards the side.",
         "marathi": "तुमची छाती बाजूला उघडा."
-      },
-      "front_knee_bent": {
-        "english": "Try to keep both legs straight, but don't lock your knees.",
-        "marathi": "दोन्ही पाय सरळ ठेवण्याचा प्रयत्न करा, पण गुडघे कडक करू नका."
       }
-    }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.2579405295798154,
+      -0.24537240616140374,
+      -0.2877040493237113,
+      -0.2426379547858181,
+      -0.2960359664742356,
+      -0.23168216626699567,
+      -0.3003489943180874,
+      -0.18883835804712382,
+      -0.31724681237682106,
+      -0.16360296624046922,
+      -0.16534577919086227,
+      -0.2213661120318595,
+      -0.25113544375555874,
+      0.0032372265446604554,
+      -0.12316985763863289,
+      -0.40363398998717626,
+      -0.25605835724840664,
+      0.1921405701412088,
+      -0.12391293068402762,
+      -0.5,
+      -0.31060726133038935,
+      0.35316739780001594,
+      0.10783274616660811,
+      0.010449836350169436,
+      -0.000962716567184382,
+      0.08024924562283356,
+      0.2497349898506533,
+      0.2676201779976495,
+      -0.18255951897615688,
+      0.2856450257401751,
+      0.3855905868533557,
+      0.4877553917452357,
+      -0.3855905868533555,
+      0.5
+    ]
   },
   {
     "id": "bhujangasana",
@@ -151,21 +618,101 @@
     "sanskrit_name": "Bhujangasana",
     "english_name": "Cobra Pose",
     "description": "A gentle backbend that strengthens the spine and opens the chest.",
-    "contraindications": ["pregnancy", "recent abdominal surgery", "carpal tunnel syndrome"],
+    "category": "flexibility",
+    "difficulty": "beginner",
+    "duration_seconds": 30,
+    "contraindications": [
+      "pregnancy",
+      "recent abdominal surgery",
+      "carpal tunnel syndrome",
+      "back pain",
+      "lower back pain"
+    ],
     "ideal_angles": {
-      "elbows": { "min": 100, "max": 160, "target": 140 },
-      "hips": { "min": 160, "max": 180, "target": 170 }
+      "left_elbow": {
+        "min": 162,
+        "max": 180,
+        "target": 177
+      },
+      "right_elbow": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      },
+      "left_shoulder": {
+        "min": 10,
+        "max": 40,
+        "target": 25
+      },
+      "right_shoulder": {
+        "min": 16,
+        "max": 46,
+        "target": 31
+      },
+      "left_hip": {
+        "min": 106,
+        "max": 136,
+        "target": 121
+      },
+      "right_hip": {
+        "min": 108,
+        "max": 138,
+        "target": 123
+      },
+      "left_knee": {
+        "min": 153,
+        "max": 180,
+        "target": 168
+      },
+      "right_knee": {
+        "min": 154,
+        "max": 180,
+        "target": 169
+      }
     },
     "corrections": {
       "shoulders_by_ears": {
         "english": "Relax your shoulders away from your ears.",
         "marathi": "तुमचे खांदे कानांपासून दूर आणि सैल ठेवा."
-      },
-      "arms_fully_straight": {
-        "english": "Keep a slight bend in your elbows.",
-        "marathi": "तुमच्या कोपऱ्यांमध्ये थोडा बाक ठेवा."
       }
-    }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.5,
+      -0.34202142227016696,
+      -0.46984526915653574,
+      -0.36628471416162733,
+      -0.4751818277046593,
+      -0.3685866890291161,
+      -0.3699859729645447,
+      -0.3368810384034246,
+      -0.38474515946873056,
+      -0.3411181367159627,
+      -0.3246366757009605,
+      -0.15668784620924114,
+      -0.37780927807122844,
+      -0.18011286479210478,
+      -0.3568021971274077,
+      0.13891110482166313,
+      -0.40669832482279583,
+      0.09067762226583652,
+      -0.3716928645132859,
+      0.36858668902911623,
+      -0.43238764224196574,
+      0.2898874899110163,
+      -0.19004576546074295,
+      0.23246386871785416,
+      -0.20390062357095814,
+      0.1955428968086425,
+      0.1904265784027002,
+      0.31039251363782994,
+      0.15438781321527353,
+      0.24967193103957913,
+      0.5,
+      0.30587917264253045,
+      0.4323976357522044,
+      0.23603882989342392
+    ]
   },
   {
     "id": "balasana",
@@ -173,17 +720,100 @@
     "sanskrit_name": "Balasana",
     "english_name": "Child's Pose",
     "description": "A resting pose that gently stretches the hips, thighs, and ankles.",
-    "contraindications": ["knee injuries", "pregnancy", "diarrhea"],
+    "category": "relaxation",
+    "difficulty": "beginner",
+    "duration_seconds": 60,
+    "contraindications": [
+      "knee injuries",
+      "knee pain",
+      "pregnancy",
+      "diarrhea"
+    ],
     "ideal_angles": {
-      "knees": { "min": 30, "max": 50, "target": 40 },
-      "hips": { "min": 30, "max": 60, "target": 45 }
+      "left_elbow": {
+        "min": 143,
+        "max": 173,
+        "target": 158
+      },
+      "right_elbow": {
+        "min": 135,
+        "max": 165,
+        "target": 150
+      },
+      "left_shoulder": {
+        "min": 129,
+        "max": 159,
+        "target": 144
+      },
+      "right_shoulder": {
+        "min": 123,
+        "max": 153,
+        "target": 138
+      },
+      "left_hip": {
+        "min": 8,
+        "max": 38,
+        "target": 23
+      },
+      "right_hip": {
+        "min": 11,
+        "max": 41,
+        "target": 26
+      },
+      "left_knee": {
+        "min": 13,
+        "max": 43,
+        "target": 28
+      },
+      "right_knee": {
+        "min": 10,
+        "max": 40,
+        "target": 25
+      }
     },
     "corrections": {
       "hips_high": {
         "english": "Sink your hips back towards your heels.",
         "marathi": "तुमचे नितंब टाचांकडे खाली घ्या."
       }
-    }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.04020417156964147,
+      0.0979586866191106,
+      -0.07383517569611404,
+      0.08933701307663869,
+      -0.0772038993534768,
+      0.08959166866377649,
+      -0.11492686975803983,
+      -0.009410834834715873,
+      -0.10875980393546006,
+      -0.0011914994201415693,
+      -0.02587073193920216,
+      -0.10692605899294953,
+      -0.06391887258166438,
+      -0.1374278689057216,
+      -0.25372521903566125,
+      0.06754061879124922,
+      -0.250468626878654,
+      0.01795070220573395,
+      -0.5,
+      0.1374278689057216,
+      -0.4752333299271584,
+      0.058435851873871666,
+      0.48843078522000133,
+      -0.11760765507586321,
+      0.4618105003204193,
+      -0.11500296648900095,
+      0.09262214734934865,
+      0.06235867627678173,
+      0.09156206570228027,
+      0.044770515349478894,
+      0.5,
+      0.08797280252034573,
+      0.4765987448717759,
+      0.05465263448702081
+    ]
   },
   {
     "id": "paschimottanasana",
@@ -191,17 +821,100 @@
     "sanskrit_name": "Paschimottanasana",
     "english_name": "Seated Forward Bend",
     "description": "A calming forward bend that stretches the hamstrings and lower back.",
-    "contraindications": ["asthma", "diarrhea", "back injury"],
+    "category": "flexibility",
+    "difficulty": "beginner",
+    "duration_seconds": 60,
+    "contraindications": [
+      "asthma",
+      "diarrhea",
+      "back injury",
+      "lower back pain"
+    ],
     "ideal_angles": {
-      "knees": { "min": 160, "max": 180, "target": 175 },
-      "hips": { "min": 40, "max": 90, "target": 60 }
+      "left_elbow": {
+        "min": 127,
+        "max": 157,
+        "target": 142
+      },
+      "right_elbow": {
+        "min": 126,
+        "max": 156,
+        "target": 141
+      },
+      "left_shoulder": {
+        "min": 86,
+        "max": 116,
+        "target": 101
+      },
+      "right_shoulder": {
+        "min": 81,
+        "max": 111,
+        "target": 96
+      },
+      "left_hip": {
+        "min": 21,
+        "max": 51,
+        "target": 36
+      },
+      "right_hip": {
+        "min": 24,
+        "max": 54,
+        "target": 39
+      },
+      "left_knee": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      },
+      "right_knee": {
+        "min": 162,
+        "max": 180,
+        "target": 177
+      }
     },
     "corrections": {
       "rounding_back": {
         "english": "Keep your back straight and fold from the hips.",
         "marathi": "तुमची पाठ सरळ ठेवा आणि नितंबातून पुढे वाका."
       }
-    }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.11622443786418772,
+      -0.04576548323592667,
+      0.14075427619833394,
+      -0.07171111064667533,
+      0.1327913602182462,
+      -0.08016193278840435,
+      0.0945473966589708,
+      -0.1743077115751542,
+      0.0755457915902224,
+      -0.17371262205875204,
+      -0.040083791010595254,
+      -0.1852028088046258,
+      -0.06851281498630118,
+      -0.19114722961511704,
+      0.17018393588985803,
+      0.020926419270840116,
+      0.17832255914685913,
+      0.0648007713896526,
+      0.44495869638705865,
+      0.052357477152114036,
+      0.48606868679964255,
+      0.10248495276805188,
+      -0.48449503864664345,
+      0.11542470594473725,
+      -0.5000000000000001,
+      0.14990601085418315,
+      0.025125382645660752,
+      0.12915405474827876,
+      0.011954502977859167,
+      0.15715039920316792,
+      0.4477322529793405,
+      0.13420184647028296,
+      0.4999999999999999,
+      0.1911472296151168
+    ]
   },
   {
     "id": "uttanasana",
@@ -209,16 +922,2225 @@
     "sanskrit_name": "Uttanasana",
     "english_name": "Standing Forward Bend",
     "description": "An intense forward stretch that calms the brain and stretches the hamstrings.",
-    "contraindications": ["back injury", "low blood pressure"],
+    "category": "flexibility",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "back injury",
+      "lower back pain",
+      "low blood pressure"
+    ],
     "ideal_angles": {
-      "knees": { "min": 160, "max": 180, "target": 170 },
-      "hips": { "min": 20, "max": 60, "target": 40 }
+      "left_elbow": {
+        "min": 108,
+        "max": 138,
+        "target": 123
+      },
+      "right_elbow": {
+        "min": 97,
+        "max": 127,
+        "target": 112
+      },
+      "left_shoulder": {
+        "min": 96,
+        "max": 126,
+        "target": 111
+      },
+      "right_shoulder": {
+        "min": 95,
+        "max": 125,
+        "target": 110
+      },
+      "left_hip": {
+        "min": 18,
+        "max": 48,
+        "target": 33
+      },
+      "right_hip": {
+        "min": 17,
+        "max": 47,
+        "target": 32
+      },
+      "left_knee": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "right_knee": {
+        "min": 162,
+        "max": 180,
+        "target": 177
+      }
     },
     "corrections": {
       "locked_knees": {
         "english": "Keep a micro-bend in your knees.",
         "marathi": "तुमच्या गुडघ्यांमध्ये थोडा बाक ठेवा."
       }
-    }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.06196395092998496,
+      0.12667662572875227,
+      -0.10025356155220601,
+      0.15461972687492562,
+      -0.10065370228504732,
+      0.15410798091032865,
+      -0.1925379181073165,
+      0.09224131776899369,
+      -0.19716362064291984,
+      0.09737411260790815,
+      -0.16357841658361288,
+      -0.04162711685152635,
+      -0.16053733350259775,
+      -0.03889137130996935,
+      0.0027637273864887916,
+      0.23994447602554117,
+      0.01280582081446993,
+      0.22859114524807309,
+      -0.127554130805835,
+      0.5,
+      -0.14017845945775584,
+      0.4478814959745119,
+      0.19716362064291973,
+      -0.49897604537101914,
+      0.18601967083259133,
+      -0.5,
+      0.15343174475711074,
+      0.015166902423224894,
+      0.13995964199470104,
+      0.014657800457411925,
+      0.15015860302046327,
+      0.4771480507118966,
+      0.12642552180991257,
+      0.43565762859749085
+    ]
+  },
+  {
+    "id": "marjaryasana_bitilasana",
+    "name": "Cat-Cow",
+    "sanskrit_name": "Marjaryasana-Bitilasana",
+    "english_name": "Cat-Cow Stretch",
+    "description": "A gentle warm-up flow that mobilizes the spine and relieves back tension.",
+    "category": "warmup",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "wrist injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "right_elbow": {
+        "min": 160,
+        "max": 180,
+        "target": 175
+      },
+      "left_shoulder": {
+        "min": 64,
+        "max": 94,
+        "target": 79
+      },
+      "right_shoulder": {
+        "min": 61,
+        "max": 91,
+        "target": 76
+      },
+      "left_hip": {
+        "min": 84,
+        "max": 114,
+        "target": 99
+      },
+      "right_hip": {
+        "min": 85,
+        "max": 115,
+        "target": 100
+      },
+      "left_knee": {
+        "min": 64,
+        "max": 94,
+        "target": 79
+      },
+      "right_knee": {
+        "min": 61,
+        "max": 91,
+        "target": 76
+      }
+    },
+    "corrections": {
+      "neck_strain": {
+        "english": "Keep your neck in line with your spine.",
+        "marathi": "तुमची मान मणक्याच्या रेषेत ठेवा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.4999999999999999,
+      -0.33387353087034105,
+      -0.4758847472459701,
+      -0.3592342504259952,
+      -0.476994090880346,
+      -0.3594857284794181,
+      -0.39032581051284454,
+      -0.3288310764698129,
+      -0.39646903789105037,
+      -0.3339477546468477,
+      -0.2951462611282061,
+      -0.1889741996109368,
+      -0.3082620271708012,
+      -0.20285741434590998,
+      -0.29785825492560036,
+      0.12482232241696148,
+      -0.30930591828187176,
+      0.09559790101788572,
+      -0.31528781342136625,
+      0.3594857284794181,
+      -0.3278701385606643,
+      0.2935628185461634,
+      0.13959479154591833,
+      -0.09749159464604015,
+      0.12543626973524152,
+      -0.09153557216691094,
+      0.11594979785785757,
+      0.34299283363994,
+      0.0971597578585888,
+      0.301204150529733,
+      0.5000000000000001,
+      0.2928614677440536,
+      0.43654488561476157,
+      0.24336477902318002
+    ]
+  },
+  {
+    "id": "setu_bandhasana",
+    "name": "Setu Bandhasana",
+    "sanskrit_name": "Setu Bandhasana",
+    "english_name": "Bridge Pose",
+    "description": "A backbend that strengthens the glutes, hamstrings, and lower back.",
+    "category": "strength",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "neck injury",
+      "shoulder injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 157,
+        "max": 180,
+        "target": 172
+      },
+      "right_elbow": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "left_shoulder": {
+        "min": 26,
+        "max": 56,
+        "target": 41
+      },
+      "right_shoulder": {
+        "min": 26,
+        "max": 56,
+        "target": 41
+      },
+      "left_hip": {
+        "min": 150,
+        "max": 180,
+        "target": 165
+      },
+      "right_hip": {
+        "min": 152,
+        "max": 180,
+        "target": 167
+      },
+      "left_knee": {
+        "min": 58,
+        "max": 88,
+        "target": 73
+      },
+      "right_knee": {
+        "min": 56,
+        "max": 86,
+        "target": 71
+      }
+    },
+    "corrections": {
+      "hips_low": {
+        "english": "Lift your hips higher towards the ceiling.",
+        "marathi": "तुमचे नितंब छताकडे अधिक उचला."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.45100025905296204,
+      0.036827335738067686,
+      -0.49416051762181606,
+      0.06055462803719347,
+      -0.4963126508866745,
+      0.06304664871085042,
+      -0.49766008033027215,
+      0.15831364243005083,
+      -0.5000000000000001,
+      0.17193886707268272,
+      -0.3016025427515854,
+      0.15294617497253177,
+      -0.32621797264102426,
+      0.20505626381457473,
+      -0.03401072615354973,
+      0.18204661290228202,
+      -0.04001848498686774,
+      0.24049683029304916,
+      0.17366944967604311,
+      0.17506016879029088,
+      0.18669245411640217,
+      0.2298447767819317,
+      0.07592696177880323,
+      -0.10990412857941333,
+      0.09408813872141725,
+      -0.07508278182061613,
+      0.44244057619585736,
+      -0.24049683029304916,
+      0.4881445794241138,
+      -0.22316485440054645,
+      0.4606206353549465,
+      0.1402198947878099,
+      0.4999999999999999,
+      0.1841849929702671
+    ]
+  },
+  {
+    "id": "utkatasana",
+    "name": "Utkatasana",
+    "sanskrit_name": "Utkatasana",
+    "english_name": "Chair Pose",
+    "description": "A powerful standing pose that strengthens the thighs and ankles.",
+    "category": "strength",
+    "difficulty": "intermediate",
+    "duration_seconds": 30,
+    "contraindications": [
+      "knee pain",
+      "knee injuries",
+      "low blood pressure",
+      "headache"
+    ],
+    "ideal_angles": {
+      "right_shoulder": {
+        "min": 112,
+        "max": 142,
+        "target": 127
+      },
+      "left_hip": {
+        "min": 72,
+        "max": 102,
+        "target": 87
+      },
+      "right_hip": {
+        "min": 71,
+        "max": 101,
+        "target": 86
+      },
+      "left_knee": {
+        "min": 72,
+        "max": 102,
+        "target": 87
+      },
+      "right_knee": {
+        "min": 71,
+        "max": 101,
+        "target": 86
+      }
+    },
+    "corrections": {
+      "knees_past_toes": {
+        "english": "Sit back as if into a chair, keep knees behind toes.",
+        "marathi": "खुर्चीत बसल्यासारखे मागे बसा, गुडघे बोटांच्या मागे ठेवा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.17187381946674452,
+      -0.43862459946638427,
+      0.14815226525899164,
+      -0.4653851469928145,
+      0.1487829414688895,
+      -0.4665238471173418,
+      0.06505908623523766,
+      -0.4480472209518716,
+      0.06264653950697534,
+      -0.4472115201654858,
+      0.016812402894809512,
+      -0.33734001725382334,
+      0.005306159254408284,
+      -0.3320521508197059,
+      0,
+      0,
+      -0.08924084720919083,
+      -0.5000000000000001,
+      0,
+      0,
+      0,
+      0,
+      -0.15519808644245756,
+      0.0730352762021537,
+      -0.1718738194667444,
+      0.07006114839687595,
+      0.13574616345895693,
+      0.17948621839142648,
+      0.14317580951209113,
+      0.18382490855099637,
+      0.003313082280862267,
+      0.4902893172474427,
+      0.0010259700432348642,
+      0.4999999999999999
+    ]
+  },
+  {
+    "id": "navasana",
+    "name": "Navasana",
+    "sanskrit_name": "Navasana",
+    "english_name": "Boat Pose",
+    "description": "A core-strengthening pose that also improves balance and digestion.",
+    "category": "strength",
+    "difficulty": "intermediate",
+    "duration_seconds": 30,
+    "contraindications": [
+      "low blood pressure",
+      "diarrhea",
+      "headache",
+      "pregnancy",
+      "neck injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 157,
+        "max": 180,
+        "target": 172
+      },
+      "right_elbow": {
+        "min": 158,
+        "max": 180,
+        "target": 173
+      },
+      "left_shoulder": {
+        "min": 51,
+        "max": 81,
+        "target": 66
+      },
+      "right_shoulder": {
+        "min": 52,
+        "max": 82,
+        "target": 67
+      },
+      "left_hip": {
+        "min": 59,
+        "max": 89,
+        "target": 74
+      },
+      "right_hip": {
+        "min": 60,
+        "max": 90,
+        "target": 75
+      },
+      "left_knee": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "right_knee": {
+        "min": 157,
+        "max": 180,
+        "target": 172
+      }
+    },
+    "corrections": {
+      "back_rounding": {
+        "english": "Lengthen your spine and lift your chest.",
+        "marathi": "तुमचा मणका लांब करा आणि छाती वर उचला."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.3507117039839295,
+      -0.3374099422037686,
+      0.390714937983776,
+      -0.36818101473637344,
+      0.3840032682134473,
+      -0.36814688625520214,
+      0.49999999999999994,
+      -0.32713237916652427,
+      0.4832941913452622,
+      -0.3283754691994126,
+      0.48160071995190556,
+      -0.11800117973153605,
+      0.43457280246859264,
+      -0.14802724244816534,
+      0.14349520032063046,
+      -0.15088291608535578,
+      0.1364634908299405,
+      -0.16778253693828132,
+      -0.10361873992938973,
+      -0.21208655603415194,
+      -0.10628057840535299,
+      -0.2145600730435664,
+      0.2104911321606212,
+      0.36818101473637344,
+      0.20167369674693814,
+      0.30719645595781075,
+      -0.11168444348320532,
+      0.04666343990842797,
+      -0.11732220332328108,
+      0.016401926704804243,
+      -0.5000000000000001,
+      -0.2326636108159995,
+      -0.4793066776801876,
+      -0.23455910563073512
+    ]
+  },
+  {
+    "id": "phalakasana",
+    "name": "Phalakasana",
+    "sanskrit_name": "Phalakasana",
+    "english_name": "Plank Pose",
+    "description": "A full-body strengthening pose that builds core stability.",
+    "category": "strength",
+    "difficulty": "intermediate",
+    "duration_seconds": 30,
+    "contraindications": [
+      "carpal tunnel syndrome",
+      "wrist injury",
+      "shoulder injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "right_elbow": {
+        "min": 158,
+        "max": 180,
+        "target": 173
+      },
+      "left_shoulder": {
+        "min": 58,
+        "max": 88,
+        "target": 73
+      },
+      "right_shoulder": {
+        "min": 59,
+        "max": 89,
+        "target": 74
+      },
+      "left_hip": {
+        "min": 143,
+        "max": 173,
+        "target": 158
+      },
+      "right_hip": {
+        "min": 144,
+        "max": 174,
+        "target": 159
+      },
+      "left_knee": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "right_knee": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      }
+    },
+    "corrections": {
+      "hips_sagging": {
+        "english": "Engage your core and keep your body in a straight line.",
+        "marathi": "तुमचा कोर सक्रिय करा आणि शरीर सरळ रेषेत ठेवा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.4912974022243932,
+      -0.1716112117632424,
+      -0.49999999999999994,
+      -0.20289109409490116,
+      -0.4983418825482887,
+      -0.2004754865187843,
+      -0.4382362100405969,
+      -0.24877751230019857,
+      -0.44272374264713044,
+      -0.2462192361262987,
+      -0.3107061692928392,
+      -0.17479003739950297,
+      -0.31502625020386443,
+      -0.18905036568843606,
+      -0.28095558472419446,
+      0.05242239073209752,
+      -0.29402761904193275,
+      0.03424135236885849,
+      -0.28581859721751296,
+      0.24877751230019857,
+      -0.29861673036875347,
+      0.1877442610529005,
+      0.011237214672209499,
+      -0.12214631033813432,
+      0.007920076323092268,
+      -0.1311240163985487,
+      0.2533923207430189,
+      0.025976158368238047,
+      0.24963657914922763,
+      0.015815054647220318,
+      0.5000000000000001,
+      0.12058756460177061,
+      0.48245209930926475,
+      0.11183266348953971
+    ]
+  },
+  {
+    "id": "garudasana",
+    "name": "Garudasana",
+    "sanskrit_name": "Garudasana",
+    "english_name": "Eagle Pose",
+    "description": "A balancing pose that stretches the shoulders and hips while improving focus.",
+    "category": "balance",
+    "difficulty": "intermediate",
+    "duration_seconds": 45,
+    "contraindications": [
+      "knee pain",
+      "knee injuries"
+    ],
+    "ideal_angles": {
+      "right_elbow": {
+        "min": 33,
+        "max": 63,
+        "target": 48
+      },
+      "left_shoulder": {
+        "min": 23,
+        "max": 53,
+        "target": 38
+      },
+      "right_shoulder": {
+        "min": 19,
+        "max": 49,
+        "target": 34
+      },
+      "left_hip": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "right_hip": {
+        "min": 125,
+        "max": 155,
+        "target": 140
+      },
+      "left_knee": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "right_knee": {
+        "min": 113,
+        "max": 143,
+        "target": 128
+      }
+    },
+    "corrections": {
+      "arms_uneven": {
+        "english": "Wrap your arms and lift your elbows to shoulder height.",
+        "marathi": "हात गुंडाळा आणि कोपरे खांद्याच्या उंचीवर उचला."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.007922811635400435,
+      -0.4689797262002598,
+      0.021621387994317703,
+      -0.49726156063032384,
+      -0.025582405372755558,
+      -0.5,
+      0.055037263972146665,
+      -0.47714540154844054,
+      -0.06256325423485944,
+      -0.4836069768602605,
+      0.1110987809464391,
+      -0.33525215151862675,
+      -0.1110987809464392,
+      -0.34981941632925256,
+      -0.007165804845710674,
+      -0.22207161496582933,
+      -0.02451628270696926,
+      -0.23490029600486773,
+      0,
+      0,
+      0.012084345449866927,
+      -0.41815255471365553,
+      0.06011866284806136,
+      0.030598211270537443,
+      -0.08891497378866778,
+      0.033102661122750975,
+      0.00438695125162556,
+      0.2632289435787315,
+      0.055763563615943715,
+      0.18585743937183524,
+      -0.010714463280969264,
+      0.5,
+      0.0120102148832846,
+      0.492012778489627
+    ]
+  },
+  {
+    "id": "natarajasana",
+    "name": "Natarajasana",
+    "sanskrit_name": "Natarajasana",
+    "english_name": "Dancer Pose",
+    "description": "A graceful balancing backbend that opens the chest and strengthens the legs.",
+    "category": "balance",
+    "difficulty": "advanced",
+    "duration_seconds": 45,
+    "contraindications": [
+      "low blood pressure",
+      "back injury",
+      "lower back pain"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "right_elbow": {
+        "min": 157,
+        "max": 180,
+        "target": 172
+      },
+      "left_shoulder": {
+        "min": 59,
+        "max": 89,
+        "target": 74
+      },
+      "right_shoulder": {
+        "min": 129,
+        "max": 159,
+        "target": 144
+      },
+      "left_hip": {
+        "min": 91,
+        "max": 121,
+        "target": 106
+      },
+      "right_hip": {
+        "min": 117,
+        "max": 147,
+        "target": 132
+      },
+      "left_knee": {
+        "min": 78,
+        "max": 108,
+        "target": 93
+      },
+      "right_knee": {
+        "min": 158,
+        "max": 180,
+        "target": 173
+      }
+    },
+    "corrections": {
+      "wobbling": {
+        "english": "Fix your gaze on a still point and engage your core.",
+        "marathi": "एका स्थिर बिंदूवर नजर ठेवा आणि कोर सक्रिय करा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.18684573771724045,
+      -0.37659759754342403,
+      -0.16802441338990182,
+      -0.4001142351151367,
+      -0.18416287876554693,
+      -0.3988050433929498,
+      -0.09869798574273421,
+      -0.393405962111901,
+      -0.1329243297944199,
+      -0.39410037318450153,
+      0.01217510838291404,
+      -0.34126299957993156,
+      -0.17018862990132405,
+      -0.24474382360169936,
+      0.15718873869751662,
+      -0.403148593856018,
+      -0.31866796868497976,
+      -0.2444686146227313,
+      0.3323283012399929,
+      -0.4999999999999999,
+      -0.47651630897703867,
+      -0.26755515695346943,
+      0.20235909695714066,
+      -0.10558462428137974,
+      0.14843014213027736,
+      -0.010790593665485272,
+      0.47651630897703856,
+      -0.21930054992635856,
+      0.17385832289815145,
+      0.2436249479408259,
+      0.38682610941206097,
+      -0.4698742755380256,
+      0.16839986096010903,
+      0.5000000000000001
+    ]
+  },
+  {
+    "id": "ardha_chandrasana",
+    "name": "Ardha Chandrasana",
+    "sanskrit_name": "Ardha Chandrasana",
+    "english_name": "Half Moon Pose",
+    "description": "A challenging balance pose that strengthens the legs and opens the hips.",
+    "category": "balance",
+    "difficulty": "advanced",
+    "duration_seconds": 45,
+    "contraindications": [
+      "low blood pressure",
+      "headache",
+      "diarrhea"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 153,
+        "max": 180,
+        "target": 168
+      },
+      "right_elbow": {
+        "min": 152,
+        "max": 180,
+        "target": 167
+      },
+      "left_shoulder": {
+        "min": 86,
+        "max": 116,
+        "target": 101
+      },
+      "right_shoulder": {
+        "min": 66,
+        "max": 96,
+        "target": 81
+      },
+      "left_hip": {
+        "min": 131,
+        "max": 161,
+        "target": 146
+      },
+      "right_hip": {
+        "min": 80,
+        "max": 110,
+        "target": 95
+      },
+      "left_knee": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "right_knee": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      }
+    },
+    "corrections": {
+      "hip_dropping": {
+        "english": "Stack your hips and open your chest to the side.",
+        "marathi": "नितंब एकावर एक ठेवा आणि छाती बाजूला उघडा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.3921489996046831,
+      -0.18960763204175787,
+      -0.4178729601544913,
+      -0.18849691124877563,
+      -0.4264214268249225,
+      -0.17513779111047903,
+      -0.4173941993940957,
+      -0.14256390474200736,
+      -0.4292541303202828,
+      -0.10764165748697543,
+      -0.2914530358936782,
+      -0.1829347738445006,
+      -0.34837895990822265,
+      0.03193976857062691,
+      -0.2583698175515251,
+      -0.3480415694218812,
+      -0.3272438722356267,
+      0.2060777944131282,
+      -0.26128309909339315,
+      -0.5,
+      -0.34366100727719673,
+      0.35812828207004926,
+      -0.02283264742830828,
+      -0.07189965890802204,
+      -0.04662864473383173,
+      0.04383921268573598,
+      0.2262996735260102,
+      -0.12227613135818763,
+      -0.03604695796271423,
+      0.2747553306834714,
+      0.42925413032028276,
+      -0.19665358885864173,
+      -0.0428934426629435,
+      0.5
+    ]
+  },
+  {
+    "id": "ustrasana",
+    "name": "Ustrasana",
+    "sanskrit_name": "Ustrasana",
+    "english_name": "Camel Pose",
+    "description": "A deep backbend that opens the chest and stretches the hip flexors.",
+    "category": "flexibility",
+    "difficulty": "intermediate",
+    "duration_seconds": 30,
+    "contraindications": [
+      "high blood pressure",
+      "low blood pressure",
+      "migraine",
+      "back injury",
+      "lower back pain",
+      "neck injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 154,
+        "max": 180,
+        "target": 169
+      },
+      "right_elbow": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "left_shoulder": {
+        "min": 37,
+        "max": 67,
+        "target": 52
+      },
+      "right_shoulder": {
+        "min": 38,
+        "max": 68,
+        "target": 53
+      },
+      "left_hip": {
+        "min": 112,
+        "max": 142,
+        "target": 127
+      },
+      "right_hip": {
+        "min": 111,
+        "max": 141,
+        "target": 126
+      },
+      "left_knee": {
+        "min": 74,
+        "max": 104,
+        "target": 89
+      },
+      "right_knee": {
+        "min": 82,
+        "max": 112,
+        "target": 97
+      }
+    },
+    "corrections": {
+      "neck_strain": {
+        "english": "Keep your neck neutral or look straight up, not back.",
+        "marathi": "मान तटस्थ ठेवा किंवा सरळ वर पहा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      0.19476968550340276,
+      -0.49999999999999994,
+      0.23185593458860976,
+      -0.4743090173023514,
+      0.23221265120346415,
+      -0.4743706211331109,
+      0.21080881473205573,
+      -0.38339695593827616,
+      0.21430188793264787,
+      -0.386694842094397,
+      0.10340625909049994,
+      -0.25302597600447535,
+      0.09211012800592693,
+      -0.25985921443460996,
+      0.10515709853904828,
+      0.07116813766624731,
+      0.1106698867301882,
+      0.05576998961059711,
+      0.15537857902030464,
+      0.33277504861707735,
+      0.15458622525680055,
+      0.3140883798525504,
+      -0.23221265120346393,
+      0.012911517751893156,
+      -0.2223724570408897,
+      0.007069351761203657,
+      -0.2211722772210973,
+      0.5000000000000001,
+      -0.1914232239859382,
+      0.4398775748736289,
+      0.17966091602487735,
+      0.48566649517492166,
+      0.1744359988765573,
+      0.45534721250990645
+    ]
+  },
+  {
+    "id": "baddha_konasana",
+    "name": "Baddha Konasana",
+    "sanskrit_name": "Baddha Konasana",
+    "english_name": "Butterfly Pose",
+    "description": "A seated hip opener that stretches the inner thighs and groin.",
+    "category": "flexibility",
+    "difficulty": "beginner",
+    "duration_seconds": 60,
+    "contraindications": [
+      "groin injury",
+      "knee injury",
+      "knee pain"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "right_elbow": {
+        "min": 153,
+        "max": 180,
+        "target": 168
+      },
+      "left_shoulder": {
+        "min": 0,
+        "max": 24,
+        "target": 9
+      },
+      "right_shoulder": {
+        "min": 0,
+        "max": 23,
+        "target": 8
+      },
+      "left_hip": {
+        "min": 68,
+        "max": 98,
+        "target": 83
+      },
+      "right_hip": {
+        "min": 72,
+        "max": 102,
+        "target": 87
+      },
+      "left_knee": {
+        "min": 3,
+        "max": 33,
+        "target": 18
+      },
+      "right_knee": {
+        "min": 5,
+        "max": 35,
+        "target": 20
+      }
+    },
+    "corrections": {
+      "knees_high": {
+        "english": "Gently press your knees towards the floor.",
+        "marathi": "हळूवारपणे गुडघे जमिनीकडे दाबा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.0017869820056633642,
+      -0.4009300960179789,
+      0.03469115268780921,
+      -0.4373799752037574,
+      -0.03824076854511952,
+      -0.4376644373259273,
+      0.08356352880492701,
+      -0.40783866466313007,
+      -0.08720332007304052,
+      -0.40749200972706,
+      0.17930792553232097,
+      -0.17517404642769588,
+      -0.18743499434470504,
+      -0.17642460706737528,
+      0.1710062360420688,
+      0.1266770208714968,
+      -0.18058277346293114,
+      0.12695891956126115,
+      0.12425421138301969,
+      0.36983641024998776,
+      -0.12175446096151221,
+      0.36758208835514855,
+      0.0902884572202636,
+      0.2974658232017742,
+      -0.11401277901363614,
+      0.29441794150902817,
+      0.49999999999999994,
+      0.3207305103413445,
+      -0.5000000000000001,
+      0.33161500208488437,
+      0.08006286701298009,
+      0.4293473217300732,
+      -0.08636287255476283,
+      0.4376644373259272
+    ]
+  },
+  {
+    "id": "savasana",
+    "name": "Savasana",
+    "sanskrit_name": "Savasana",
+    "english_name": "Corpse Pose",
+    "description": "A final relaxation pose that allows the body to absorb the benefits of practice.",
+    "category": "relaxation",
+    "difficulty": "beginner",
+    "duration_seconds": 90,
+    "contraindications": [],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "left_shoulder": {
+        "min": 0,
+        "max": 30,
+        "target": 15
+      },
+      "right_shoulder": {
+        "min": 0,
+        "max": 22,
+        "target": 7
+      },
+      "left_hip": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "right_hip": {
+        "min": 160,
+        "max": 180,
+        "target": 175
+      },
+      "left_knee": {
+        "min": 160,
+        "max": 180,
+        "target": 175
+      },
+      "right_knee": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      }
+    },
+    "corrections": {},
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.4670000687437873,
+      -0.08963035074513899,
+      0.5,
+      -0.07069425031412774,
+      0.4971989287771969,
+      -0.07520745030623291,
+      0.49658645356702646,
+      -0.001685698710014495,
+      0.49643630413752987,
+      -0.012893722133043389,
+      0.387849133140095,
+      0.028823815554586112,
+      0.36965281511411624,
+      -0.027410904696273452,
+      0.20533077349721376,
+      0.06844359484753129,
+      0.20463485703692005,
+      -0.019308152488866456,
+      0.0627773364077612,
+      0.08963035074513882,
+      0,
+      0,
+      0.04778547613159117,
+      0.013192609299785243,
+      0.05130577059180378,
+      -0.04812187177913863,
+      -0.23352889238258148,
+      0.03088443479381256,
+      -0.20732228904598096,
+      -0.04318394931104609,
+      -0.5,
+      0.07147904143144822,
+      -0.44802215197113054,
+      -0.00048328080900951985
+    ]
+  },
+  {
+    "id": "viparita_karani",
+    "name": "Viparita Karani",
+    "sanskrit_name": "Viparita Karani",
+    "english_name": "Legs Up The Wall",
+    "description": "A restorative inversion that relieves tired legs and calms the nervous system.",
+    "category": "relaxation",
+    "difficulty": "beginner",
+    "duration_seconds": 90,
+    "contraindications": [
+      "glaucoma",
+      "high blood pressure",
+      "menstruation"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 70,
+        "max": 100,
+        "target": 85
+      },
+      "right_elbow": {
+        "min": 89,
+        "max": 119,
+        "target": 104
+      },
+      "left_shoulder": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "right_shoulder": {
+        "min": 129,
+        "max": 159,
+        "target": 144
+      },
+      "left_hip": {
+        "min": 95,
+        "max": 125,
+        "target": 110
+      },
+      "right_hip": {
+        "min": 89,
+        "max": 119,
+        "target": 104
+      }
+    },
+    "corrections": {},
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.3453796397297381,
+      0.08415911556137422,
+      0.3958016690966488,
+      0.1169334333784962,
+      0.39547262364161606,
+      0.10910404608591362,
+      0.38812782669126106,
+      0.24148091298320162,
+      0.3854970471762981,
+      0.22700991318003366,
+      0.185645836145038,
+      0.2914803408033406,
+      0.21074505684308337,
+      0.20290894446623192,
+      0.4742561534569334,
+      0.3957482933708079,
+      0.3629185092849121,
+      0.13204735084403862,
+      0.5,
+      0.2963887489631361,
+      0.47640162487126525,
+      0.27357481771733977,
+      -0.44318670396112503,
+      0.1394811757604297,
+      -0.38175180722530294,
+      0.09015031132546335,
+      -0.49999999999999994,
+      -0.3814812858292259,
+      -0.4124576716769626,
+      -0.39574829337080764,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "anjaneyasana",
+    "name": "Anjaneyasana",
+    "sanskrit_name": "Anjaneyasana",
+    "english_name": "Low Lunge",
+    "description": "A hip-opening lunge that stretches the hip flexors and quadriceps.",
+    "category": "flexibility",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "knee pain",
+      "knee injuries"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 148,
+        "max": 178,
+        "target": 163
+      },
+      "right_elbow": {
+        "min": 143,
+        "max": 173,
+        "target": 158
+      },
+      "left_shoulder": {
+        "min": 150,
+        "max": 180,
+        "target": 165
+      },
+      "right_shoulder": {
+        "min": 158,
+        "max": 180,
+        "target": 173
+      },
+      "left_hip": {
+        "min": 127,
+        "max": 157,
+        "target": 142
+      },
+      "right_hip": {
+        "min": 68,
+        "max": 98,
+        "target": 83
+      },
+      "left_knee": {
+        "min": 113,
+        "max": 143,
+        "target": 128
+      },
+      "right_knee": {
+        "min": 62,
+        "max": 92,
+        "target": 77
+      }
+    },
+    "corrections": {
+      "front_knee_past_ankle": {
+        "english": "Keep your front knee directly above your ankle.",
+        "marathi": "पुढचा गुडघा घोट्याच्या सरळ वर ठेवा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.11170785558566941,
+      -0.3094221990805742,
+      0.08372425370644586,
+      -0.32103220553368483,
+      0.0826880022103961,
+      -0.3210990922135335,
+      0.03414082249193522,
+      -0.2780668868140695,
+      0.03589117868403752,
+      -0.2760567966787877,
+      0.04305957983280752,
+      -0.16040350832491962,
+      0.03980171383316737,
+      -0.15381872721001355,
+      -0.01051814202578455,
+      -0.36306343722862927,
+      -0.010349027207254674,
+      -0.3713125110550371,
+      -0.09524987855228823,
+      -0.49847151632975645,
+      -0.09881456587838135,
+      -0.4999999999999999,
+      0.04281432770530304,
+      0.23921487520388426,
+      0.07900480976910558,
+      0.23908897612890476,
+      -0.1377196615453138,
+      0.47273341007330844,
+      0.41137031475997815,
+      0.16434304428750512,
+      -0.41137031475997815,
+      0.47406022704828876,
+      0.40739629472770683,
+      0.5
+    ]
+  },
+  {
+    "id": "parsvakonasana",
+    "name": "Parsvakonasana",
+    "sanskrit_name": "Utthita Parsvakonasana",
+    "english_name": "Extended Side Angle",
+    "description": "A standing pose that stretches the side body and strengthens the legs.",
+    "category": "standing",
+    "difficulty": "intermediate",
+    "duration_seconds": 45,
+    "contraindications": [
+      "high blood pressure",
+      "neck problems"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 151,
+        "max": 180,
+        "target": 166
+      },
+      "right_elbow": {
+        "min": 150,
+        "max": 180,
+        "target": 165
+      },
+      "left_shoulder": {
+        "min": 49,
+        "max": 79,
+        "target": 64
+      },
+      "right_shoulder": {
+        "min": 163,
+        "max": 180,
+        "target": 178
+      },
+      "left_hip": {
+        "min": 6,
+        "max": 36,
+        "target": 21
+      },
+      "right_hip": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "left_knee": {
+        "min": 72,
+        "max": 102,
+        "target": 87
+      },
+      "right_knee": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      }
+    },
+    "corrections": {
+      "chest_facing_floor": {
+        "english": "Rotate your chest open towards the ceiling.",
+        "marathi": "छाती छताकडे उघडा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      0.2976948825431615,
+      -0.22369167691343655,
+      0.33869563178199275,
+      -0.20661128992397212,
+      0.32838394959046935,
+      -0.22560021084053344,
+      0.3539182948048276,
+      -0.12557380949026176,
+      0.3438104906394006,
+      -0.16534917106326041,
+      0.30111379994869053,
+      0.035763975962247785,
+      0.2127368943956812,
+      -0.1948877023637428,
+      0.2840942896266013,
+      0.2329716215582817,
+      0.3360461645112715,
+      -0.32225892427158026,
+      0.3132819947570717,
+      0.4203569585336968,
+      0.5,
+      -0.420356958533697,
+      0.061232102584052865,
+      0.12837170185380795,
+      -0.047566700045810074,
+      0.09012126137843715,
+      0.33568068215452324,
+      0.1258881779717078,
+      -0.28285903244336075,
+      0.27602804048986634,
+      0.32531846094217276,
+      0.4203029539522876,
+      -0.49999999999999994,
+      0.4133130954758463
+    ]
+  },
+  {
+    "id": "prasarita_padottanasana",
+    "name": "Prasarita Padottanasana",
+    "sanskrit_name": "Prasarita Padottanasana",
+    "english_name": "Wide-Legged Forward Fold",
+    "description": "A standing forward fold that stretches the hamstrings and inner thighs.",
+    "category": "flexibility",
+    "difficulty": "beginner",
+    "duration_seconds": 45,
+    "contraindications": [
+      "lower back pain",
+      "back injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 136,
+        "max": 166,
+        "target": 151
+      },
+      "right_elbow": {
+        "min": 145,
+        "max": 175,
+        "target": 160
+      },
+      "left_shoulder": {
+        "min": 149,
+        "max": 179,
+        "target": 164
+      },
+      "right_shoulder": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "left_hip": {
+        "min": 4,
+        "max": 34,
+        "target": 19
+      },
+      "right_hip": {
+        "min": 4,
+        "max": 34,
+        "target": 19
+      },
+      "left_knee": {
+        "min": 154,
+        "max": 180,
+        "target": 169
+      },
+      "right_knee": {
+        "min": 158,
+        "max": 180,
+        "target": 173
+      }
+    },
+    "corrections": {
+      "rounding_back": {
+        "english": "Lengthen your spine as you fold forward.",
+        "marathi": "पुढे वाकताना मणका लांब करा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.017089398550768686,
+      0.21307011920167973,
+      0.02522739605498401,
+      0.2258830102772025,
+      -0.03981943678927698,
+      0.22287760041589874,
+      0.07002762292839405,
+      0.16190868447203546,
+      -0.08995500171569754,
+      0.15321024577686435,
+      0.1514675885356679,
+      -0.009350312047340137,
+      -0.1647349891148821,
+      -0.0031675542710711616,
+      0.22120692347056753,
+      0.18003379758829774,
+      -0.20589201274102661,
+      0.18348798540369274,
+      0.19236642432948842,
+      0.35807476394806126,
+      -0.18256085692070756,
+      0.36995933912646506,
+      0.12279964966815136,
+      -0.369959339126465,
+      -0.12316292586804595,
+      -0.3582451125798015,
+      0.2915030939073522,
+      0.009542678847453237,
+      -0.29359905797566055,
+      0.0027147092667712228,
+      0.5,
+      0.31126367051088744,
+      -0.5,
+      0.3235940317903554
+    ]
+  },
+  {
+    "id": "sukhasana",
+    "name": "Sukhasana",
+    "sanskrit_name": "Sukhasana",
+    "english_name": "Easy Seated Pose",
+    "description": "A comfortable cross-legged seated pose for breathing and meditation.",
+    "category": "warmup",
+    "difficulty": "beginner",
+    "duration_seconds": 60,
+    "contraindications": [
+      "knee injury",
+      "hip injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 139,
+        "max": 169,
+        "target": 154
+      },
+      "right_elbow": {
+        "min": 133,
+        "max": 163,
+        "target": 148
+      },
+      "left_shoulder": {
+        "min": 5,
+        "max": 35,
+        "target": 20
+      },
+      "right_shoulder": {
+        "min": 3,
+        "max": 33,
+        "target": 18
+      },
+      "left_hip": {
+        "min": 82,
+        "max": 112,
+        "target": 97
+      },
+      "right_hip": {
+        "min": 81,
+        "max": 111,
+        "target": 96
+      },
+      "left_knee": {
+        "min": 9,
+        "max": 39,
+        "target": 24
+      },
+      "right_knee": {
+        "min": 3,
+        "max": 33,
+        "target": 18
+      }
+    },
+    "corrections": {
+      "slouching": {
+        "english": "Sit tall, lengthen your spine.",
+        "marathi": "सरळ बसा, मणका लांब करा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.003438900743677923,
+      -0.451905730548176,
+      0.03280717848453848,
+      -0.5000000000000001,
+      -0.05160028244123393,
+      -0.49682743963837434,
+      0.09418669490261325,
+      -0.48526792415162057,
+      -0.09645027360614387,
+      -0.4797469991445183,
+      0.20295048306639546,
+      -0.23270747155636612,
+      -0.20277399101266413,
+      -0.22945998431145406,
+      0.27257287467454366,
+      0.10463695988873203,
+      -0.2573948607844615,
+      0.11349972223577882,
+      0.42062070614476277,
+      0.29358375098360734,
+      -0.4253046781038529,
+      0.30433572800225983,
+      0.12099350683724765,
+      0.3306431160634018,
+      -0.11483983741254165,
+      0.33091848311600425,
+      0.4567483570858096,
+      0.4214896570782794,
+      -0.4567483570858096,
+      0.423909199189585,
+      -0.032106780516249676,
+      0.4999999999999999,
+      0.010591339608640522,
+      0.44459602608463566
+    ]
+  },
+  {
+    "id": "gomukhasana",
+    "name": "Gomukhasana",
+    "sanskrit_name": "Gomukhasana",
+    "english_name": "Cow Face Pose",
+    "description": "A seated pose that deeply stretches the hips, thighs, and shoulders.",
+    "category": "flexibility",
+    "difficulty": "intermediate",
+    "duration_seconds": 60,
+    "contraindications": [
+      "knee pain",
+      "knee injuries",
+      "hip injury"
+    ],
+    "ideal_angles": {
+      "right_elbow": {
+        "min": 21,
+        "max": 51,
+        "target": 36
+      },
+      "left_shoulder": {
+        "min": 0,
+        "max": 27,
+        "target": 12
+      },
+      "right_shoulder": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      },
+      "left_hip": {
+        "min": 33,
+        "max": 63,
+        "target": 48
+      },
+      "right_hip": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "left_knee": {
+        "min": 69,
+        "max": 99,
+        "target": 84
+      },
+      "right_knee": {
+        "min": 94,
+        "max": 124,
+        "target": 109
+      }
+    },
+    "corrections": {
+      "leaning_forward": {
+        "english": "Sit upright and keep your spine tall.",
+        "marathi": "सरळ बसा आणि मणका उंच ठेवा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.019818889333997367,
+      -0.35561063086204736,
+      0.018374303346533265,
+      -0.3969258648624732,
+      -0.053803109083999684,
+      -0.3981254024891983,
+      0.06869282246189011,
+      -0.37058185774968605,
+      -0.1032705374349056,
+      -0.37333325908943393,
+      0.17422908043851573,
+      -0.14655521327640475,
+      -0.17172044986491436,
+      -0.20591188102404043,
+      0.22030780655964569,
+      0.1391158083490147,
+      -0.19328050560043056,
+      -0.4999999999999999,
+      0,
+      0,
+      -0.06346193870319244,
+      -0.34529211400693693,
+      0.1486254657852334,
+      0.40304012699917635,
+      -0.08144396896049846,
+      0.4058693736213976,
+      -0.0327979816925106,
+      0.22516925254289524,
+      -0.05218023487994983,
+      0.4949839935139645,
+      -0.2522843193029961,
+      0.5000000000000001,
+      0.25228431930299633,
+      0.4999308534430417
+    ]
+  },
+  {
+    "id": "supta_matsyendrasana",
+    "name": "Supta Matsyendrasana",
+    "sanskrit_name": "Supta Matsyendrasana",
+    "english_name": "Supine Spinal Twist",
+    "description": "A gentle lying twist that releases tension in the spine and hips.",
+    "category": "relaxation",
+    "difficulty": "beginner",
+    "duration_seconds": 60,
+    "contraindications": [
+      "hip replacement",
+      "spinal disc issues"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      },
+      "left_shoulder": {
+        "min": 149,
+        "max": 179,
+        "target": 164
+      },
+      "right_shoulder": {
+        "min": 6,
+        "max": 36,
+        "target": 21
+      },
+      "left_hip": {
+        "min": 85,
+        "max": 115,
+        "target": 100
+      },
+      "right_hip": {
+        "min": 164,
+        "max": 180,
+        "target": 179
+      },
+      "left_knee": {
+        "min": 27,
+        "max": 57,
+        "target": 42
+      },
+      "right_knee": {
+        "min": 160,
+        "max": 180,
+        "target": 175
+      }
+    },
+    "corrections": {
+      "shoulder_lifting": {
+        "english": "Keep both shoulders grounded on the mat.",
+        "marathi": "दोन्ही खांदे चटईवर ठेवा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      0.35404646967737025,
+      -0.008430452296437744,
+      0.38266395274903336,
+      0.008124367684823518,
+      0.37985146749550125,
+      -0.002235605388067624,
+      0.37152438463750076,
+      0.06808343809536078,
+      0.37014098717780936,
+      0.04378511621701017,
+      0.27370752834848794,
+      0.08685566935962481,
+      0.2370239499663598,
+      0.01609573088942222,
+      0.39535169930389374,
+      0.13014561087932347,
+      0.10055392719416494,
+      -0.02895173848421256,
+      0.49999999999999994,
+      0.16633954881898846,
+      0,
+      0,
+      -0.03705387830278318,
+      0.06999158741783953,
+      -0.04853374989114984,
+      0.030459693146424525,
+      -0.06749368182267076,
+      -0.16633954881898833,
+      -0.2833828847082839,
+      0.04773032444629561,
+      -0.17640285914855058,
+      -0.009688001604115867,
+      -0.5000000000000001,
+      0.0809657722954013
+    ]
+  },
+  {
+    "id": "virabhadrasana_iii",
+    "name": "Virabhadrasana III",
+    "sanskrit_name": "Virabhadrasana III",
+    "english_name": "Warrior III",
+    "description": "A challenging balance pose that strengthens the entire posterior chain.",
+    "category": "balance",
+    "difficulty": "advanced",
+    "duration_seconds": 30,
+    "contraindications": [
+      "high blood pressure",
+      "leg injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 146,
+        "max": 176,
+        "target": 161
+      },
+      "right_elbow": {
+        "min": 154,
+        "max": 180,
+        "target": 169
+      },
+      "left_shoulder": {
+        "min": 130,
+        "max": 160,
+        "target": 145
+      },
+      "right_shoulder": {
+        "min": 132,
+        "max": 162,
+        "target": 147
+      },
+      "left_hip": {
+        "min": 146,
+        "max": 176,
+        "target": 161
+      },
+      "right_hip": {
+        "min": 92,
+        "max": 122,
+        "target": 107
+      },
+      "left_knee": {
+        "min": 159,
+        "max": 180,
+        "target": 174
+      },
+      "right_knee": {
+        "min": 161,
+        "max": 180,
+        "target": 176
+      }
+    },
+    "corrections": {
+      "hip_rotation": {
+        "english": "Keep both hips level and square to the floor.",
+        "marathi": "दोन्ही नितंब जमिनीला समांतर ठेवा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.33389479148953755,
+      -0.26330845184008445,
+      -0.3296942386128946,
+      -0.28655760861811336,
+      -0.3294069839469218,
+      -0.2879839883932586,
+      -0.27101659228376096,
+      -0.30396367584482986,
+      -0.2747522600500657,
+      -0.3038022977062782,
+      -0.21190071295043642,
+      -0.2552248689405591,
+      -0.22302828769538696,
+      -0.24342024611142268,
+      -0.3789936232574194,
+      -0.20930687976528917,
+      -0.3714709814780396,
+      -0.21613573420858165,
+      -0.4999865985520008,
+      -0.21607562986858136,
+      -0.49999999999999994,
+      -0.21745238951113452,
+      0.05441847861013458,
+      -0.1588014119716841,
+      0.041441881015931936,
+      -0.13405620771639987,
+      0.2963876349796528,
+      -0.15525882418719972,
+      0.01903345364258661,
+      0.09399452605933031,
+      0.5,
+      -0.17301087985052807,
+      0.012888993403010062,
+      0.30396367584483
+    ]
+  },
+  {
+    "id": "dhanurasana",
+    "name": "Dhanurasana",
+    "sanskrit_name": "Dhanurasana",
+    "english_name": "Bow Pose",
+    "description": "A prone backbend that opens the chest and strengthens the back muscles.",
+    "category": "flexibility",
+    "difficulty": "intermediate",
+    "duration_seconds": 30,
+    "contraindications": [
+      "back injury",
+      "lower back pain",
+      "neck injury",
+      "pregnancy",
+      "high blood pressure"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 165,
+        "max": 180,
+        "target": 180
+      },
+      "right_elbow": {
+        "min": 156,
+        "max": 180,
+        "target": 171
+      },
+      "left_shoulder": {
+        "min": 48,
+        "max": 78,
+        "target": 63
+      },
+      "right_shoulder": {
+        "min": 39,
+        "max": 69,
+        "target": 54
+      },
+      "left_hip": {
+        "min": 103,
+        "max": 133,
+        "target": 118
+      },
+      "right_hip": {
+        "min": 105,
+        "max": 135,
+        "target": 120
+      },
+      "left_knee": {
+        "min": 66,
+        "max": 96,
+        "target": 81
+      },
+      "right_knee": {
+        "min": 70,
+        "max": 100,
+        "target": 85
+      }
+    },
+    "corrections": {
+      "knees_wide": {
+        "english": "Keep your knees hip-width apart.",
+        "marathi": "गुडघे नितंबाच्या रुंदीइतके ठेवा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.4999999999999999,
+      -0.20378951955894478,
+      -0.46648895335824064,
+      -0.22654719188685393,
+      -0.4687586841802907,
+      -0.22797808172544595,
+      -0.3705840632627748,
+      -0.1605613754922535,
+      -0.38557634597920043,
+      -0.17019834511173496,
+      -0.2714843224580173,
+      -0.05477808358413755,
+      -0.30846811357837706,
+      -0.07569821440657283,
+      -0.03560876691895305,
+      -0.1453431018200305,
+      -0.037842121088797386,
+      -0.15487036944411842,
+      0.2218969821160718,
+      -0.24241190011576996,
+      0.19300133089514804,
+      -0.2619155651255456,
+      0.08086688808938311,
+      0.2619155651255456,
+      0.060204817116878084,
+      0.21162652953868508,
+      0.5000000000000001,
+      0.10881538095571226,
+      0.4306854487692831,
+      0.060090492034176025,
+      0.3131915125385483,
+      -0.23166441283001046,
+      0.2937478275054933,
+      -0.2100229483804442
+    ]
+  },
+  {
+    "id": "shalabhasana",
+    "name": "Shalabhasana",
+    "sanskrit_name": "Shalabhasana",
+    "english_name": "Locust Pose",
+    "description": "A prone backbend that strengthens the back, glutes, and legs.",
+    "category": "strength",
+    "difficulty": "beginner",
+    "duration_seconds": 30,
+    "contraindications": [
+      "pregnancy",
+      "back injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 163,
+        "max": 180,
+        "target": 178
+      },
+      "right_elbow": {
+        "min": 162,
+        "max": 180,
+        "target": 177
+      },
+      "left_shoulder": {
+        "min": 0,
+        "max": 29,
+        "target": 14
+      },
+      "right_shoulder": {
+        "min": 0,
+        "max": 29,
+        "target": 14
+      },
+      "left_hip": {
+        "min": 112,
+        "max": 142,
+        "target": 127
+      },
+      "right_hip": {
+        "min": 110,
+        "max": 140,
+        "target": 125
+      },
+      "left_knee": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "right_knee": {
+        "min": 157,
+        "max": 180,
+        "target": 172
+      }
+    },
+    "corrections": {
+      "neck_strain": {
+        "english": "Keep your gaze down and neck long.",
+        "marathi": "नजर खाली ठेवा आणि मान लांब ठेवा."
+      }
+    },
+    "preferred_orientation": "side",
+    "target_skeleton": [
+      -0.5,
+      -0.09052296321340525,
+      -0.48336666415488894,
+      -0.11042461175342286,
+      -0.4834191842705589,
+      -0.11137124419213604,
+      -0.412683263180489,
+      -0.08629350798517146,
+      -0.41257561556752015,
+      -0.09104654860848374,
+      -0.34412420776416414,
+      0.01796620340309376,
+      -0.29824268437934676,
+      -0.031910938245713186,
+      -0.13409177057092797,
+      0.07590979570260026,
+      -0.12600219938020712,
+      0.023360822802674822,
+      0.03429283570122287,
+      0.12967351422797274,
+      0.019049768156798944,
+      0.06152318334335594,
+      -0.08334460818952825,
+      0.16439651343844758,
+      -0.06715096379978804,
+      0.11020797944241198,
+      0.25605801013565394,
+      0.012634952638706343,
+      0.2117937752173897,
+      -0.01191674202452877,
+      0.5,
+      -0.15366298009068802,
+      0.46237391038711595,
+      -0.16439651343844738
+    ]
+  },
+  {
+    "id": "ananda_balasana",
+    "name": "Ananda Balasana",
+    "sanskrit_name": "Ananda Balasana",
+    "english_name": "Happy Baby Pose",
+    "description": "A gentle hip opener that releases the lower back and inner groin.",
+    "category": "relaxation",
+    "difficulty": "beginner",
+    "duration_seconds": 60,
+    "contraindications": [
+      "pregnancy",
+      "knee injury"
+    ],
+    "ideal_angles": {
+      "left_elbow": {
+        "min": 155,
+        "max": 180,
+        "target": 170
+      },
+      "right_elbow": {
+        "min": 147,
+        "max": 177,
+        "target": 162
+      },
+      "left_shoulder": {
+        "min": 17,
+        "max": 47,
+        "target": 32
+      },
+      "right_shoulder": {
+        "min": 14,
+        "max": 44,
+        "target": 29
+      },
+      "left_hip": {
+        "min": 28,
+        "max": 58,
+        "target": 43
+      },
+      "left_knee": {
+        "min": 43,
+        "max": 73,
+        "target": 58
+      }
+    },
+    "corrections": {
+      "lower_back_lifting": {
+        "english": "Press your lower back gently into the mat.",
+        "marathi": "पाठीचा खालचा भाग हळूवारपणे चटईवर दाबा."
+      }
+    },
+    "preferred_orientation": "front",
+    "target_skeleton": [
+      -0.4413839134899509,
+      0.057786563292435235,
+      -0.4916448999110487,
+      0.08756164328954771,
+      -0.5,
+      0.09935462396146233,
+      -0.4826315093336837,
+      0.2038332959272894,
+      -0.480394612684507,
+      0.23440940172167457,
+      -0.22403041986417888,
+      0.10676779118121896,
+      -0.2724407163321063,
+      0.2619236642043543,
+      0.017348671134046548,
+      -0.008638217616352197,
+      0.06293027382007732,
+      0.06956777246041121,
+      0.27015822692490205,
+      -0.19223773840387814,
+      0.2730840599163417,
+      -0.15980229851662767,
+      0.33267476605039786,
+      0.16718058952524684,
+      0.368170811967538,
+      0.2548805479860738,
+      0.019172068102858243,
+      -0.19278185738912815,
+      0,
+      0,
+      0.4572795543929906,
+      -0.2619236642043546,
+      0.5,
+      -0.25093283638860087
+    ]
   }
 ]

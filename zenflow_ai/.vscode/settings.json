@@ -2,5 +2,6 @@
   "deno.enable": true,
   "deno.enablePaths": [
     "supabase/functions"
-  ]
+  ],
+  "cmake.sourceDirectory": "D:/Zenflow/zenflow_ai/linux"
 }

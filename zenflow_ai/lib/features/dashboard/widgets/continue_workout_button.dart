@@ -13,12 +13,15 @@ class ContinueWorkoutButton extends StatelessWidget {
   final VoidCallback onTap;
 
   bool get _hasActiveSession =>
-      session.status == WorkoutStatus.paused && session.splitId != null;
+      (session.status == WorkoutStatus.paused ||
+       session.status == WorkoutStatus.active ||
+       session.status == WorkoutStatus.rest ||
+       session.status == WorkoutStatus.preview) &&
+      session.splitId != null;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final dayLabel = 'Day ${session.currentAsanaIndex + 1}';
 
     return GestureDetector(
       onTap: onTap,
@@ -79,7 +82,7 @@ class ContinueWorkoutButton extends StatelessWidget {
                       children: [
                         Text(
                           _hasActiveSession
-                              ? 'Continue $dayLabel'
+                              ? 'Continue Session'
                               : 'Start Workout',
                           style: GoogleFonts.inter(
                             fontSize: 20,

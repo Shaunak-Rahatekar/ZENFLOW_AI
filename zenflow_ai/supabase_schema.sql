@@ -19,10 +19,13 @@ CREATE TABLE public.profiles (
   email         TEXT,
   full_name     TEXT,
   weight_kg     FLOAT,
+  height_cm     FLOAT,
   age           INTEGER,
   fitness_goal  TEXT,
   -- Stored as comma-separated string for simple Dart parsing
   health_conditions TEXT DEFAULT '',
+  -- How many minutes per day the user can dedicate to yoga
+  daily_minutes_available INTEGER DEFAULT 30,
   avatar_url    TEXT,
   updated_at    TIMESTAMPTZ DEFAULT now()
 );
@@ -46,12 +49,16 @@ CREATE TABLE public.workout_logs (
   workout_date     DATE NOT NULL DEFAULT CURRENT_DATE,
   started_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
   completed_at     TIMESTAMPTZ,
-  duration_minutes INTEGER,
-  calories_burned  INTEGER,
-  posture_score_avg FLOAT,
+  duration_minutes INTEGER DEFAULT 0,
+  calories_burned  INTEGER DEFAULT 0,
+  posture_score_avg FLOAT DEFAULT 0.0,
   performance_data JSONB DEFAULT '{}',
-  notes            TEXT
+  notes            TEXT DEFAULT NULL
 );
+
+-- Index for fast per-user dashboard queries
+CREATE INDEX idx_workout_logs_user_date
+  ON public.workout_logs (user_id, workout_date DESC);
 
 -- ── 4. Enable Row Level Security ─────────────────────────────
 ALTER TABLE public.profiles       ENABLE ROW LEVEL SECURITY;
@@ -71,6 +78,10 @@ CREATE POLICY "profiles: update own"
   ON public.profiles FOR UPDATE
   USING (auth.uid() = user_id);
 
+CREATE POLICY "profiles: delete own"
+  ON public.profiles FOR DELETE
+  USING (auth.uid() = user_id);
+
 -- ── 6. RLS Policies — weekly_splits ──────────────────────────
 CREATE POLICY "splits: select own"
   ON public.weekly_splits FOR SELECT
@@ -84,6 +95,10 @@ CREATE POLICY "splits: update own"
   ON public.weekly_splits FOR UPDATE
   USING (auth.uid() = user_id);
 
+CREATE POLICY "splits: delete own"
+  ON public.weekly_splits FOR DELETE
+  USING (auth.uid() = user_id);
+
 -- ── 7. RLS Policies — workout_logs ───────────────────────────
 CREATE POLICY "logs: select own"
   ON public.workout_logs FOR SELECT
@@ -95,6 +110,10 @@ CREATE POLICY "logs: insert own"
 
 CREATE POLICY "logs: update own"
   ON public.workout_logs FOR UPDATE
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "logs: delete own"
+  ON public.workout_logs FOR DELETE
   USING (auth.uid() = user_id);
 
 -- ── 8. Trigger: auto-create profile on user sign-up ──────────

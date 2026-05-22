@@ -16,6 +16,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   final _formKey = GlobalKey<FormState>();
   final _nameCtrl = TextEditingController();
   final _weightCtrl = TextEditingController();
+  final _heightCtrl = TextEditingController();
 
   // Known health conditions
   static const _allConditions = [
@@ -25,6 +26,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
   Set<String> _selectedConditions = {};
   String? _fitnessGoal;
+  int _dailyMinutes = 30;
   bool _dirty = false;
 
   static const _goals = ['Weight Loss', 'Muscle Gain', 'Flexibility', 'Stress Relief', 'General Fitness'];
@@ -33,6 +35,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   void dispose() {
     _nameCtrl.dispose();
     _weightCtrl.dispose();
+    _heightCtrl.dispose();
     super.dispose();
   }
 
@@ -40,8 +43,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     if (!_dirty) {
       _nameCtrl.text = p.name ?? '';
       _weightCtrl.text = p.weightKg?.toStringAsFixed(1) ?? '';
+      _heightCtrl.text = p.heightCm?.toStringAsFixed(0) ?? '';
       _selectedConditions = Set.from(p.healthConditions);
       _fitnessGoal = p.fitnessGoal;
+      _dailyMinutes = p.dailyMinutesAvailable;
     }
   }
 
@@ -50,18 +55,24 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
     final weightRaw = _weightCtrl.text.trim();
     final weight = double.tryParse(weightRaw);
+    final heightRaw = _heightCtrl.text.trim();
+    final height = double.tryParse(heightRaw);
 
     final profile = ref.read(profileProvider).value;
     final bool weightChanged = weight != profile?.weightKg;
+    final bool heightChanged = height != profile?.heightCm;
     final bool conditionsChanged =
         !_setsEqual(_selectedConditions, Set.from(profile?.healthConditions ?? []));
-    final bool needsRegen = weightChanged || conditionsChanged;
+    final bool timeChanged = _dailyMinutes != profile?.dailyMinutesAvailable;
+    final bool needsRegen = weightChanged || heightChanged || conditionsChanged || timeChanged;
 
     await ref.read(profileProvider.notifier).saveAndRegenerate(
           name: _nameCtrl.text.trim().isEmpty ? null : _nameCtrl.text.trim(),
           weightKg: weight,
+          heightCm: height,
           healthConditions: _selectedConditions.toList(),
           fitnessGoal: _fitnessGoal,
+          dailyMinutesAvailable: _dailyMinutes,
         );
 
     if (!mounted) return;
@@ -197,7 +208,66 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           return null;
                         },
                       ),
+                      const SizedBox(height: 12),
+
+                      _FormField(
+                        controller: _heightCtrl,
+                        label: 'Height (cm)',
+                        icon: Icons.height_rounded,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        validator: (v) {
+                          if (v == null || v.isEmpty) return null;
+                          final h = double.tryParse(v);
+                          if (h == null) return 'Enter a valid number';
+                          if (h < 100 || h > 250) return 'Height must be 100–250 cm';
+                          return null;
+                        },
+                      ),
                       const SizedBox(height: 20),
+
+                      // ── Daily Time Available ───────────────────
+                      _SectionHeader(
+                        label: 'Daily Time Available',
+                        subtitle: 'How many minutes can you practice each day?',
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Slider(
+                              value: _dailyMinutes.toDouble(),
+                              min: 10,
+                              max: 90,
+                              divisions: 16,
+                              label: '$_dailyMinutes min',
+                              onChanged: (v) => setState(() {
+                                _dailyMinutes = v.round();
+                                _dirty = true;
+                              }),
+                            ),
+                          ),
+                          Container(
+                            width: 64,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primaryContainer,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text(
+                              '$_dailyMinutes min',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 13,
+                                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
 
                       // ── Fitness Goal ───────────────────────────
                       _SectionHeader(label: 'Fitness Goal'),
