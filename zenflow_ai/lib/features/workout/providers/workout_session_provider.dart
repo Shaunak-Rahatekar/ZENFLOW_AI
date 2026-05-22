@@ -45,6 +45,7 @@ class WorkoutSessionState {
   final double currentAccuracy;     // 0.0 to 100.0
   final double averageAccuracy;     // 0.0 to 100.0
   final int accuracySamples;
+  final String healthConditions;
 
   const WorkoutSessionState({
     this.status = WorkoutStatus.idle,
@@ -63,6 +64,7 @@ class WorkoutSessionState {
     this.currentAccuracy = 0.0,
     this.averageAccuracy = 0.0,
     this.accuracySamples = 0,
+    this.healthConditions = '',
   });
 
   WorkoutSessionState copyWith({
@@ -82,6 +84,7 @@ class WorkoutSessionState {
     double? currentAccuracy,
     double? averageAccuracy,
     int? accuracySamples,
+    String? healthConditions,
   }) {
     return WorkoutSessionState(
       status: status ?? this.status,
@@ -100,6 +103,7 @@ class WorkoutSessionState {
       currentAccuracy: currentAccuracy ?? this.currentAccuracy,
       averageAccuracy: averageAccuracy ?? this.averageAccuracy,
       accuracySamples: accuracySamples ?? this.accuracySamples,
+      healthConditions: healthConditions ?? this.healthConditions,
     );
   }
 
@@ -200,6 +204,19 @@ class WorkoutSessionNotifier extends AsyncNotifier<WorkoutSessionState> {
     if (savedSplitId != null && savedAsanaIndex != null) {
       // Reload asanas so the session is fully functional on resume
       try {
+        final user = Supabase.instance.client.auth.currentUser;
+        double weightKg = 70.0;
+        String healthConditions = '';
+        if (user != null) {
+          final profile = await Supabase.instance.client
+              .from('profiles')
+              .select('weight_kg, health_conditions')
+              .eq('user_id', user.id)
+              .maybeSingle();
+          weightKg = (profile?['weight_kg'] as num?)?.toDouble() ?? 70.0;
+          healthConditions = profile?['health_conditions'] as String? ?? '';
+        }
+
         final asanas = await _loadAsanasForSplit(savedSplitId, savedAsanaIndex);
         if (asanas.isNotEmpty) {
           final asana = asanas[savedAsanaIndex] as Map<String, dynamic>?;
@@ -212,6 +229,8 @@ class WorkoutSessionNotifier extends AsyncNotifier<WorkoutSessionState> {
             asanas: asanas,
             currentAsana: asana,
             asanaCountdownSeconds: _parseDuration(asana),
+            userWeightKg: weightKg,
+            healthConditions: healthConditions,
           );
         }
       } catch (_) { /* fall through to idle */ }
@@ -248,13 +267,15 @@ class WorkoutSessionNotifier extends AsyncNotifier<WorkoutSessionState> {
     state = await AsyncValue.guard(() async {
       // Load user weight for calorie calculation
       double weightKg = 70.0;
+      String healthConditions = '';
       try {
         final profile = await Supabase.instance.client
             .from('profiles')
-            .select('weight_kg')
+            .select('weight_kg, health_conditions')
             .eq('user_id', user.id)
             .maybeSingle();
         weightKg = (profile?['weight_kg'] as num?)?.toDouble() ?? 70.0;
+        healthConditions = profile?['health_conditions'] as String? ?? '';
       } catch (_) {}
 
       final response = await Supabase.instance.client
@@ -310,6 +331,7 @@ class WorkoutSessionNotifier extends AsyncNotifier<WorkoutSessionState> {
         currentAsana: firstAsana,
         asanaCountdownSeconds: _parseDuration(firstAsana),
         userWeightKg: weightKg,
+        healthConditions: healthConditions,
       );
     });
   }

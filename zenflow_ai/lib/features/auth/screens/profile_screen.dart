@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zenflow_ai/features/auth/providers/profile_provider.dart';
+import 'package:zenflow_ai/features/auth/screens/auth_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
@@ -142,6 +143,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 tooltip: 'Log Out',
                 onPressed: () async {
                   await Supabase.instance.client.auth.signOut();
+                  if (context.mounted) {
+                    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => const AuthScreen()),
+                      (route) => false,
+                    );
+                  }
                 },
               ),
               if (_dirty)
@@ -471,7 +478,7 @@ class _FormField extends StatelessWidget {
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
       validator: validator,
-      style: GoogleFonts.inter(fontSize: 15),
+      style: GoogleFonts.inter(fontSize: 15, color: theme.colorScheme.onSurface),
       decoration: InputDecoration(
         labelText: label,
         labelStyle: GoogleFonts.inter(fontSize: 14),

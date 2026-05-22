@@ -278,7 +278,11 @@ class _WorkoutSessionScreenState extends ConsumerState<WorkoutSessionScreen>
   }
 
   void _initPoseAnalyzer() {
+    final session = ref.read(workoutSessionProvider).value;
+    final healthConditions = session?.healthConditions ?? '';
+
     _poseAnalyzer = PoseAnalyzer(
+      healthConditions: healthConditions,
       onCorrectionNeeded: (correction) {
         TtsService.instance.speak(correction.englishFeedback);
         if (mounted) {
@@ -336,9 +340,24 @@ class _WorkoutSessionScreenState extends ConsumerState<WorkoutSessionScreen>
   Future<void> _initCamera([
     CameraLensDirection direction = CameraLensDirection.back,
   ]) async {
-    await _cameraController?.stopImageStream().catchError((_) {});
-    await _cameraController?.dispose();
-    if (mounted) setState(() => _cameraReady = false);
+    final oldController = _cameraController;
+    if (mounted) {
+      setState(() {
+        _cameraReady = false;
+        _cameraController = null;
+      });
+    }
+
+    if (oldController != null) {
+      try {
+        if (oldController.value.isStreamingImages) {
+          await oldController.stopImageStream();
+        }
+      } catch (_) {}
+      try {
+        await oldController.dispose();
+      } catch (_) {}
+    }
 
     try {
       _availableCameras = await availableCameras();

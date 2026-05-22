@@ -5,16 +5,22 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'dart:collection';
+
 /// Cloud TTS service using Deepgram Aura via Supabase Edge Function.
-/// Call [speak] from anywhere — it interrupts the current utterance.
+/// Call [speak] from anywhere — it queues the text sequentially.
 class TtsService {
-  TtsService._();
+  TtsService._() {
+    _audioPlayer.onPlayerComplete.listen((_) {
+      _isProcessing = false;
+      _processQueue();
+    });
+  }
   static final TtsService instance = TtsService._();
 
   final AudioPlayer _audioPlayer = AudioPlayer();
-
-  static const int _cooldownMs = 4000;
-  DateTime _lastSpokenAt = DateTime.fromMillisecondsSinceEpoch(0);
+  final Queue<String> _queue = Queue<String>();
+  bool _isProcessing = false;
 
   // ── Text sanitisation ───────────────────────────────────────────────────────
   /// Strips markdown and formatting characters so TTS never reads symbols aloud.
@@ -75,17 +81,28 @@ class TtsService {
   }
 
   /// Speaks [text] after sanitising it.
-  /// Respects a [_cooldownMs] cooldown so rapid corrections are dropped,
-  /// unless [bypassCooldown] is true.
+  /// If [bypassCooldown] is true, the text is inserted at the front of the queue.
   Future<void> speak(String text, {bool bypassCooldown = false}) async {
     final clean = sanitise(text);
     if (clean.isEmpty || clean == '.') return;
 
-    final now = DateTime.now();
-    if (!bypassCooldown && now.difference(_lastSpokenAt).inMilliseconds < _cooldownMs) return;
-    _lastSpokenAt = now;
+    if (bypassCooldown) {
+      // Clear queue and play immediately (e.g. for urgent corrections or next pose)
+      _queue.clear();
+      _queue.add(clean);
+      await _audioPlayer.stop();
+      _isProcessing = false;
+    } else {
+      _queue.add(clean);
+    }
+    _processQueue();
+  }
 
-    await _audioPlayer.stop();
+  Future<void> _processQueue() async {
+    if (_isProcessing || _queue.isEmpty) return;
+    _isProcessing = true;
+
+    final textToPlay = _queue.removeFirst();
 
     try {
       final supabaseUrl = dotenv.env['SUPABASE_URL'] ?? '';
@@ -96,7 +113,7 @@ class TtsService {
       final authKey = session != null ? session.accessToken : (dotenv.env['SUPABASE_ANON_KEY'] ?? '');
       request.headers.add('Authorization', 'Bearer $authKey');
       request.headers.add('Content-Type', 'application/json');
-      request.write(jsonEncode({'text': clean, 'voice': 'aura-asteria-en'}));
+      request.write(jsonEncode({'text': textToPlay, 'voice': 'aura-2-theia-en'}));
       
       final response = await request.close();
       if (response.statusCode == 200) {
@@ -105,9 +122,13 @@ class TtsService {
       } else {
         final error = await response.transform(utf8.decoder).join();
         debugPrint('[TTS] Edge Function Error ${response.statusCode}: $error');
+        _isProcessing = false;
+        _processQueue();
       }
     } catch (e) {
       debugPrint('[TTS] Error generating/playing audio: $e');
+      _isProcessing = false;
+      _processQueue();
     }
   }
 
@@ -115,8 +136,8 @@ class TtsService {
     required String english,
     required String marathi,
   }) async {
-    // Interruption is fine for corrections
-    await speak('Wait. $english');
+    // Priority correction
+    await speak('Wait. $english', bypassCooldown: true);
   }
 
   Future<void> speakGreeting(String poseName) async {
@@ -144,6 +165,8 @@ class TtsService {
   }
 
   Future<void> stop() async {
+    _queue.clear();
+    _isProcessing = false;
     await _audioPlayer.stop();
   }
 

@@ -7,6 +7,9 @@ import 'package:zenflow_ai/core/shell/app_shell.dart';
 import 'package:zenflow_ai/features/auth/screens/auth_screen.dart';
 import 'package:zenflow_ai/features/auth/screens/profile_screen.dart';
 import 'package:zenflow_ai/features/auth/providers/profile_provider.dart';
+import 'package:zenflow_ai/features/dashboard/providers/dashboard_stats_provider.dart';
+import 'package:zenflow_ai/features/reports/providers/reports_provider.dart';
+import 'package:zenflow_ai/features/workout/providers/workout_session_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
@@ -138,6 +141,9 @@ class _AuthGuardState extends ConsumerState<AuthGuard> {
     _authStateSubscription = Supabase.instance.client.auth.onAuthStateChange.listen((data) {
       if (mounted) {
         ref.invalidate(profileProvider);
+        ref.invalidate(dashboardStatsProvider);
+        ref.invalidate(reportsProvider);
+        ref.invalidate(workoutSessionProvider);
         setState(() {});
       }
     });

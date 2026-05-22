@@ -215,7 +215,7 @@ Example format: [["sukhasana","tadasana","balasana"],["sukhasana","virabhadrasan
     if (!geminiApiKey) throw new Error("Missing GEMINI_API_KEY");
 
     const primaryModel = (Deno.env.get("GEMINI_MODEL") || "gemini-2.0-flash").trim();
-    const fallbackModels = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash"];
+    const fallbackModels = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro"];
     const modelsToTry = [...new Set([primaryModel, ...fallbackModels])];
 
     let geminiRes: Response | null = null;

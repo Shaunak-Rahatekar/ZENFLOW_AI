@@ -116,6 +116,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
+                    style: GoogleFonts.inter(color: theme.colorScheme.onSurface),
                     decoration: InputDecoration(
                       labelText: 'Email',
                       prefixIcon: const Icon(Icons.email_outlined),
@@ -131,6 +132,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     TextFormField(
                       controller: _passwordController,
                       obscureText: true,
+                      style: GoogleFonts.inter(color: theme.colorScheme.onSurface),
                       decoration: InputDecoration(
                         labelText: 'Password',
                         prefixIcon: const Icon(Icons.lock_outline_rounded),
